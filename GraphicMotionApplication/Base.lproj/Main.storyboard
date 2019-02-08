@@ -18,17 +18,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ea-nf-BVA" customClass="UIGraphicView" customModule="GraphicMotionApplication" customModuleProvider="target">
-                                <rect key="frame" x="67" y="270" width="240" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7ea-nf-BVA" customClass="UIGraphicView" customModule="GraphicMotionApplication" customModuleProvider="target">
+                                <rect key="frame" x="48" y="206" width="279" height="255"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PH5-rK-kR3">
+                                <rect key="frame" x="170" y="537" width="34" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.1145923266" blue="0.18719284059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startDraw:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fGI-vf-Ai4"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                        <color key="backgroundColor" red="0.256769317" green="0.67345369170000002" blue="0.6424805441" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="7ea-nf-BVA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="1Vf-uO-bDq"/>
-                            <constraint firstItem="7ea-nf-BVA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ZtR-FA-Al3"/>
-                            <constraint firstItem="7ea-nf-BVA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="gLK-dX-tdw"/>
-                            <constraint firstItem="7ea-nf-BVA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="qBQ-cL-CRt"/>
+                            <constraint firstItem="7ea-nf-BVA" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="48" id="8pJ-yS-9c7"/>
+                            <constraint firstItem="7ea-nf-BVA" firstAttribute="centerX" secondItem="PH5-rK-kR3" secondAttribute="centerX" id="AhU-na-3p8"/>
+                            <constraint firstItem="PH5-rK-kR3" firstAttribute="top" secondItem="7ea-nf-BVA" secondAttribute="bottom" constant="76" id="J1c-62-XDg"/>
+                            <constraint firstItem="PH5-rK-kR3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="170" id="KLB-yB-CeR"/>
+                            <constraint firstItem="7ea-nf-BVA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="186" id="RXU-DW-HVR"/>
+                            <constraint firstItem="7ea-nf-BVA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="g1v-4X-XgZ"/>
+                            <constraint firstItem="PH5-rK-kR3" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="hAX-MI-XIf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -38,6 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="37.600000000000001" y="26.53673163418291"/>
         </scene>
     </scenes>
 </document>

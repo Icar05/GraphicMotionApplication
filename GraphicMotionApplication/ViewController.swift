@@ -17,9 +17,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        testGraphic()
     }
 
+    
+    @IBAction func startDraw(_ sender: Any) {
+        testGraphic()
+    }
+    
+    
     
     @IBOutlet weak var graphic: UIGraphicView!
     
@@ -27,11 +32,10 @@ class ViewController: UIViewController {
     
     func testGraphic(){
         
-        
-        
+
         Observable.zip(
             Observable.from(values),
-            Observable<Int>.interval(RxTimeInterval(0.1),
+            Observable<Int>.interval(RxTimeInterval(0.6),
             scheduler: MainScheduler.instance))
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (value, key) in

@@ -17,6 +17,8 @@ class UIGraphicView: UIView {
     
     var aPath = UIBezierPath()
     
+    var guidePath = UIBezierPath()
+    
     var size: CGFloat = 0
     
     var halfHeight:   CGFloat = 0
@@ -85,7 +87,7 @@ class UIGraphicView: UIView {
     
   
     func drawBackgroundSquere(){
-        let test = CGRect(x: 0, y: 0, width: size, height: size)
+        let test = CGRect(x: 0, y: 0, width: bounds.width, height: size)
         let path = UIBezierPath(roundedRect: test, cornerRadius: 20)
         UIColor.black.setFill()
         path.fill()
@@ -97,12 +99,57 @@ class UIGraphicView: UIView {
         return CGFloat(value) * stepX
     }
     
+    override open class var layerClass: AnyClass {
+        get{
+            return CAGradientLayer.classForCoder()
+        }
+    }
+    
+    func createGradientLayer() {
+        let gradientLayer = self.layer as! CAGradientLayer
+        let colors = [UIColor.red.cgColor, UIColor.yellow.cgColor]
+        gradientLayer.colors = [colors[0], colors[1]]
+        gradientLayer.cornerRadius = 20
+    }
     
     
-    
-    override func draw(_ rect: CGRect) {
+    func drawGuideLines(){
         
-        drawBackgroundSquere()
+        
+        let guidePath = UIBezierPath()
+        
+        UIColor.red.setStroke()
+        
+        guidePath.stroke()
+        
+        let step = calculateVersicalStep()
+        
+        var offset = step
+        
+        
+        
+        for i in 1 ..< datasource.count - 1{
+           
+            guidePath.move(to: CGPoint(x:0,  y:offset))
+            
+            guidePath.addLine(to: CGPoint(x: bounds.width, y:offset))
+                
+            offset  = offset + step
+            
+        }
+        
+        guidePath.stroke()
+        guidePath.close()
+    }
+    
+    func calculateVersicalStep() -> CGFloat{
+        return  size / CGFloat((datasource.count - 1))
+    }
+    
+    
+    func drawGraphic(){
+        
+         UIColor.white.setStroke()
         
         startPointX = 0
         
@@ -111,21 +158,29 @@ class UIGraphicView: UIView {
         for i: Int in datasource {
             
             aPath.move(to: CGPoint(x:startPointX, y:startPointY))
-        
+            
             startPointX = startPointX + partOfWidth
             
             startPointY = calculateStepHeight(value: i)
-        
+            
             aPath.addLine(to: CGPoint(x: startPointX, y:startPointY))
             
-            aPath.close()
             
-            UIColor.red.set()
             aPath.stroke()
-        
-            aPath.fill()
-            
+
         }
+        
+        aPath.close()
+    }
+    
+    override func draw(_ rect: CGRect) {
+        
+        drawBackgroundSquere()
+        
+        drawGuideLines()
+        
+        drawGraphic()
+       
     }
  
 
