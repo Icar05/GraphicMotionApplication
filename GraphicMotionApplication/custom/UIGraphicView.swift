@@ -15,7 +15,7 @@ class UIGraphicView: UIView {
     
     
     
-    let aPath = UIBezierPath()
+    var aPath = UIBezierPath()
     
     var size: CGFloat = 0
     
@@ -44,11 +44,12 @@ class UIGraphicView: UIView {
         setNeedsDisplay()
     }
     
+    
+    
+    
     func clear(){
-        guard let sublayers = layer.sublayers else { return }
-        for layer in sublayers {
-            layer.removeFromSuperlayer()
-        }
+        layer.sublayers = nil;
+        aPath = UIBezierPath()
     }
     
     
@@ -86,8 +87,6 @@ class UIGraphicView: UIView {
     func drawBackgroundSquere(){
         let test = CGRect(x: 0, y: 0, width: size, height: size)
         let path = UIBezierPath(roundedRect: test, cornerRadius: 20)
-        
-        
         UIColor.black.setFill()
         path.fill()
     }
@@ -103,21 +102,15 @@ class UIGraphicView: UIView {
     
     override func draw(_ rect: CGRect) {
         
-       
-        
-        print("new datasource -> \(datasource)")
-        
         drawBackgroundSquere()
         
+        startPointX = 0
         
-        //todo hardcode
         startPointY = calculateStepHeight(value: datasource[0])
         
         for i: Int in datasource {
             
             aPath.move(to: CGPoint(x:startPointX, y:startPointY))
-            
-            print("redraw, y -> \(startPointY)")
         
             startPointX = startPointX + partOfWidth
             
@@ -133,12 +126,6 @@ class UIGraphicView: UIView {
             aPath.fill()
             
         }
-        
-        
-        
-
-        
-       
     }
  
 
