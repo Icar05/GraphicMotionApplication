@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6DD0EAA2C0FF5716862FF7EF /* Pods_GraphicMotionApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B295C5615E1C1F1C3399913F /* Pods_GraphicMotionApplication.framework */; };
 		9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACC220D8BC700C00732 /* AppDelegate.swift */; };
 		9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACE220D8BC700C00732 /* ViewController.swift */; };
 		9BE52AD2220D8BC700C00732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD0220D8BC700C00732 /* Main.storyboard */; };
 		9BE52AD4220D8BC900C00732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD3220D8BC900C00732 /* Assets.xcassets */; };
 		9BE52AD7220D8BC900C00732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD5220D8BC900C00732 /* LaunchScreen.storyboard */; };
+		9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ADF220D90F200C00732 /* UIGraphicView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6310553E85847243228C565A /* Pods-GraphicMotionApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphicMotionApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphicMotionApplication/Pods-GraphicMotionApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		9BE52AC9220D8BC700C00732 /* GraphicMotionApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphicMotionApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE52ACC220D8BC700C00732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE52ACE220D8BC700C00732 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,9 @@
 		9BE52AD3220D8BC900C00732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BE52AD6220D8BC900C00732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE52AD8220D8BC900C00732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BE52ADF220D90F200C00732 /* UIGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGraphicView.swift; sourceTree = "<group>"; };
+		AEF288F3C335DCA58142E4DC /* Pods-GraphicMotionApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphicMotionApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraphicMotionApplication/Pods-GraphicMotionApplication.release.xcconfig"; sourceTree = "<group>"; };
+		B295C5615E1C1F1C3399913F /* Pods_GraphicMotionApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphicMotionApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +35,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6DD0EAA2C0FF5716862FF7EF /* Pods_GraphicMotionApplication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +47,8 @@
 			children = (
 				9BE52ACB220D8BC700C00732 /* GraphicMotionApplication */,
 				9BE52ACA220D8BC700C00732 /* Products */,
+				F5B258179C0BED3DE02A9CEB /* Pods */,
+				B04F76288F626DF0FD201DB8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +63,7 @@
 		9BE52ACB220D8BC700C00732 /* GraphicMotionApplication */ = {
 			isa = PBXGroup;
 			children = (
+				9BE52ADE220D909500C00732 /* custom */,
 				9BE52ACC220D8BC700C00732 /* AppDelegate.swift */,
 				9BE52ACE220D8BC700C00732 /* ViewController.swift */,
 				9BE52AD0220D8BC700C00732 /* Main.storyboard */,
@@ -64,6 +74,31 @@
 			path = GraphicMotionApplication;
 			sourceTree = "<group>";
 		};
+		9BE52ADE220D909500C00732 /* custom */ = {
+			isa = PBXGroup;
+			children = (
+				9BE52ADF220D90F200C00732 /* UIGraphicView.swift */,
+			);
+			path = custom;
+			sourceTree = "<group>";
+		};
+		B04F76288F626DF0FD201DB8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B295C5615E1C1F1C3399913F /* Pods_GraphicMotionApplication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5B258179C0BED3DE02A9CEB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6310553E85847243228C565A /* Pods-GraphicMotionApplication.debug.xcconfig */,
+				AEF288F3C335DCA58142E4DC /* Pods-GraphicMotionApplication.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +106,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9BE52ADB220D8BC900C00732 /* Build configuration list for PBXNativeTarget "GraphicMotionApplication" */;
 			buildPhases = (
+				FDCF420BDE938DF267E3174D /* [CP] Check Pods Manifest.lock */,
 				9BE52AC5220D8BC700C00732 /* Sources */,
 				9BE52AC6220D8BC700C00732 /* Frameworks */,
 				9BE52AC7220D8BC700C00732 /* Resources */,
+				C0ED1E8AF53A28D30FFA903F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -130,12 +167,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		C0ED1E8AF53A28D30FFA903F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-GraphicMotionApplication/Pods-GraphicMotionApplication-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraphicMotionApplication/Pods-GraphicMotionApplication-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDCF420BDE938DF267E3174D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GraphicMotionApplication-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9BE52AC5220D8BC700C00732 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */,
+				9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */,
 				9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,6 +369,7 @@
 		};
 		9BE52ADC220D8BC900C00732 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6310553E85847243228C565A /* Pods-GraphicMotionApplication.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +388,7 @@
 		};
 		9BE52ADD220D8BC900C00732 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEF288F3C335DCA58142E4DC /* Pods-GraphicMotionApplication.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
