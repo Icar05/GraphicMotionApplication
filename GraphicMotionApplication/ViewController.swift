@@ -14,6 +14,8 @@ class ViewController: UIViewController {
 
     
     
+    var isRunning  = false
+    
     var bag = DisposeBag()
     
     @IBAction func huy(_ sender: Any) {
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
     
     
     
-    @IBOutlet weak var button: UIGraphicView!
+    @IBOutlet weak var graphic: UIGraphicView!
     
     
     
@@ -41,7 +43,7 @@ class ViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         
         // 2. add the gesture recognizer to a view
-        button.addGestureRecognizer(tapGesture)
+        graphic.addGestureRecognizer(tapGesture)
     }
     
     // 3. this method is called when a tap is recognized
@@ -61,18 +63,29 @@ class ViewController: UIViewController {
     
     func testGraphic(){
 
+        if isRunning {
+            return
+        }
+        
+        isRunning = true
+        
         (Observable.zip(
             Observable.from(values),
             Observable<Int>.interval(RxTimeInterval(0.1),
             scheduler: MainScheduler.instance))
             .observeOn(MainScheduler.instance)
-            .subscribe(onNext: { (value, key) in
-                self.button.addStep(value: value)
-                print("value -> \(value)")
-            }) as Disposable)
-             .disposed(by: bag)
-        
-    }
+            .subscribe(
+                onNext: { (value, key) in
+                    self.graphic.addStep(value: value)
+                    print("value -> \(value)")
+                    
+                },
+                onCompleted: {
+                    self.isRunning = false
+                }
+                ) as Disposable)
+                        .disposed(by: bag)
+                }
 
 }
 

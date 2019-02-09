@@ -87,7 +87,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="button" destination="0WE-Yh-yce" id="wV5-mM-U28"/>
+                        <outlet property="graphic" destination="0WE-Yh-yce" id="wV5-mM-U28"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
