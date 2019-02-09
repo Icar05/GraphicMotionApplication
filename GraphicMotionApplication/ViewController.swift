@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class ViewController: UIViewController {
 
@@ -34,6 +35,18 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        // 1. create a gesture recognizer (tap gesture)
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+        
+        // 2. add the gesture recognizer to a view
+        button.addGestureRecognizer(tapGesture)
+    }
+    
+    // 3. this method is called when a tap is recognized
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        testGraphic()
     }
 
     

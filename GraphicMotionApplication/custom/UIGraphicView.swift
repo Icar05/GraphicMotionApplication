@@ -143,8 +143,6 @@ class UIGraphicView: UIView {
         
         UIColor.white.setStroke()
         
-        aPath.stroke()
-        
         startPointX = 0
         
         startPointY = calculateStepHeight(value: datasource[0])
@@ -158,6 +156,8 @@ class UIGraphicView: UIView {
             startPointY = calculateStepHeight(value: i)
             
             aPath.addLine(to: CGPoint(x: startPointX, y:startPointY))
+            
+            aPath.stroke()
             
         }
         
