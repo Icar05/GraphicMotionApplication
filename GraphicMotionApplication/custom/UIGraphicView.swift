@@ -19,7 +19,7 @@ class UIGraphicView: UIView {
     
     var guidePath = UIBezierPath()
     
-    var size: CGFloat = 0
+    var size: CGFloat = 200
     
     var halfHeight:   CGFloat = 0
     
@@ -40,13 +40,44 @@ class UIGraphicView: UIView {
 
     
     
+    
+    
+    override var bounds: CGRect {
+        didSet {
+            self.frame = CGRect(x: 0, y: 0, width: size, height: size)
+            self.backgroundColor = UIColor.black
+            self.halfHeight = size / 2
+            self.startPointY  = halfHeight
+            self.partOfWidth = size / CGFloat(datasource.count)
+            self.partOfHeight = partOfWidth
+            self.stepX  =  size / CGFloat(datasource.count)
+        }
+    }
+    
+    
+    
+    override func awakeFromNib() {
+        self.layoutIfNeeded()
+        layer.cornerRadius = 20
+        layer.masksToBounds = true
+    }
+    
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+    }
+    
+    
     func addStep(value: Int){
         pushArrayWithValue(value: value)
         clear()
         setNeedsDisplay()
     }
-    
-    
     
     
     func clear(){
@@ -67,68 +98,29 @@ class UIGraphicView: UIView {
             datasource = newDatasource
     }
     
-    
-    override var bounds: CGRect {
-        didSet {
-            let height = bounds.size.height
-            let width = bounds.size.width
-            halfHeight = height / 2
-            startPointY  = halfHeight
-            partOfWidth = bounds.width / CGFloat(datasource.count)
-            partOfHeight = partOfWidth
-            size = height > width ? width: height
-            stepX  =  size / CGFloat(datasource.count)
-        }
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-  
-    func drawBackgroundSquere(){
-        let test = CGRect(x: 0, y: 0, width: bounds.width, height: size)
-        let path = UIBezierPath(roundedRect: test, cornerRadius: 20)
-        UIColor.black.setFill()
-        path.fill()
-    }
-    
 
     
     func calculateStepHeight(value: Int) -> CGFloat{
         return CGFloat(value) * stepX
     }
     
-    override open class var layerClass: AnyClass {
-        get{
-            return CAGradientLayer.classForCoder()
-        }
-    }
-    
-    func createGradientLayer() {
-        let gradientLayer = self.layer as! CAGradientLayer
-        let colors = [UIColor.red.cgColor, UIColor.yellow.cgColor]
-        gradientLayer.colors = [colors[0], colors[1]]
-        gradientLayer.cornerRadius = 20
-    }
+
     
     
     func drawGuideLines(){
         
-        
         let guidePath = UIBezierPath()
         
-        UIColor.red.setStroke()
+            UIColor.red.setStroke()
         
-        guidePath.stroke()
+            guidePath.stroke()
         
         let step = calculateVersicalStep()
         
         var offset = step
         
         
-        
-        for i in 1 ..< datasource.count - 1{
+        for _ in 1 ..< datasource.count - 1{
            
             guidePath.move(to: CGPoint(x:0,  y:offset))
             
@@ -138,8 +130,8 @@ class UIGraphicView: UIView {
             
         }
         
-        guidePath.stroke()
-        guidePath.close()
+            guidePath.stroke()
+            guidePath.close()
     }
     
     func calculateVersicalStep() -> CGFloat{
@@ -149,7 +141,9 @@ class UIGraphicView: UIView {
     
     func drawGraphic(){
         
-         UIColor.white.setStroke()
+        UIColor.white.setStroke()
+        
+        aPath.stroke()
         
         startPointX = 0
         
@@ -165,17 +159,16 @@ class UIGraphicView: UIView {
             
             aPath.addLine(to: CGPoint(x: startPointX, y:startPointY))
             
-            
-            aPath.stroke()
-
         }
         
         aPath.close()
     }
     
+    
+    
+    
+    
     override func draw(_ rect: CGRect) {
-        
-        drawBackgroundSquere()
         
         drawGuideLines()
         
@@ -184,4 +177,17 @@ class UIGraphicView: UIView {
     }
  
 
+//    override open class var layerClass: AnyClass {
+//        get{
+//            return CAGradientLayer.classForCoder()
+//        }
+//    }
+//
+//    func createGradientLayer() {
+//        let gradientLayer = self.layer as! CAGradientLayer
+//        let colors = [UIColor.red.cgColor, UIColor.yellow.cgColor]
+//        gradientLayer.colors = [colors[0], colors[1]]
+//        gradientLayer.cornerRadius = 20
+//    }
+    
 }

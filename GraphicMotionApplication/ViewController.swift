@@ -12,6 +12,11 @@ import RxSwift
 class ViewController: UIViewController {
 
     
+    @IBAction func huy(_ sender: Any) {
+        testGraphic()
+    
+    }
+    @IBOutlet weak var button: UIGraphicView!
     let values :[Int] = [10, 5, 1, 5, 2, 5, 2, 5, 6, 3, 2, 5, 7, 2, 7, 3, 7, 7, 2, 7, 2, 7 , 1, 3, 5, 2, 4
     , 4, 6, 7, 2, 3, 6, 7, 3, 7, 7]
     
@@ -26,7 +31,6 @@ class ViewController: UIViewController {
     
     
     
-    @IBOutlet weak var graphic: UIGraphicView!
     
     
     
@@ -35,13 +39,13 @@ class ViewController: UIViewController {
 
         Observable.zip(
             Observable.from(values),
-            Observable<Int>.interval(RxTimeInterval(0.6),
+            Observable<Int>.interval(RxTimeInterval(0.1),
             scheduler: MainScheduler.instance))
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (value, key) in
                 
                 
-                self.graphic.addStep(value: value)
+                self.button.addStep(value: value)
                 print("value -> \(value)")
 //                self.graphic.setNeedsDisplay()
             })
