@@ -15,23 +15,17 @@ class UIGraphicView: UIView {
     
     
     
-    var aPath = UIBezierPath()
+    var graphicPath = UIBezierPath()
     
     var guidePath = UIBezierPath()
     
-    var size: CGFloat = 200
+    var sizeOfView: CGFloat = 200
     
-    var halfHeight:   CGFloat = 0
+    var startPointX: CGFloat = 0
     
-    var startPointX:  CGFloat = 0
+    var startPointY: CGFloat = 0
     
-    var startPointY:  CGFloat = 0
-    
-    var partOfWidth:  CGFloat = 0
-    
-    var partOfHeight: CGFloat  = 0
-    
-    var stepX: CGFloat = 0
+    var stepInPixel: CGFloat = 0
     
     
     // we will devide all graphic on parts by count datasource
@@ -44,13 +38,10 @@ class UIGraphicView: UIView {
     
     override var bounds: CGRect {
         didSet {
-            self.frame = CGRect(x: 0, y: 0, width: size, height: size)
+            self.frame = CGRect(x: 0, y: 0, width: sizeOfView, height: sizeOfView)
             self.backgroundColor = UIColor.black
-            self.halfHeight = size / 2
-            self.startPointY  = halfHeight
-            self.partOfWidth = size / CGFloat(datasource.count)
-            self.partOfHeight = partOfWidth
-            self.stepX  =  size / CGFloat(datasource.count)
+            self.startPointY  = sizeOfView / 2
+            self.stepInPixel  =  sizeOfView / CGFloat(datasource.count)
         }
     }
     
@@ -82,7 +73,7 @@ class UIGraphicView: UIView {
     
     func clear(){
         layer.sublayers = nil;
-        aPath = UIBezierPath()
+        graphicPath = UIBezierPath()
     }
     
     
@@ -101,7 +92,7 @@ class UIGraphicView: UIView {
 
     
     func calculateStepHeight(value: Int) -> CGFloat{
-        return CGFloat(value) * stepX
+        return CGFloat(value) * stepInPixel
     }
     
 
@@ -123,7 +114,7 @@ class UIGraphicView: UIView {
         for _ in 1 ..< datasource.count - 1{
            
             guidePath.move(to: CGPoint(x:0,  y:offset))
-            
+
             guidePath.addLine(to: CGPoint(x: bounds.width, y:offset))
                 
             offset  = offset + step
@@ -135,7 +126,7 @@ class UIGraphicView: UIView {
     }
     
     func calculateVersicalStep() -> CGFloat{
-        return  size / CGFloat((datasource.count - 1))
+        return  sizeOfView / CGFloat((datasource.count - 1))
     }
     
     
@@ -149,19 +140,19 @@ class UIGraphicView: UIView {
         
         for i: Int in datasource {
             
-            aPath.move(to: CGPoint(x:startPointX, y:startPointY))
+            graphicPath.move(to: CGPoint(x:startPointX, y:startPointY))
             
-            startPointX = startPointX + partOfWidth
+            startPointX = startPointX + stepInPixel
             
             startPointY = calculateStepHeight(value: i)
             
-            aPath.addLine(to: CGPoint(x: startPointX, y:startPointY))
+            graphicPath.addLine(to: CGPoint(x: startPointX, y:startPointY))
             
-            aPath.stroke()
+            graphicPath.stroke()
             
         }
         
-        aPath.close()
+        graphicPath.close()
     }
     
     
@@ -176,18 +167,5 @@ class UIGraphicView: UIView {
        
     }
  
-
-//    override open class var layerClass: AnyClass {
-//        get{
-//            return CAGradientLayer.classForCoder()
-//        }
-//    }
-//
-//    func createGradientLayer() {
-//        let gradientLayer = self.layer as! CAGradientLayer
-//        let colors = [UIColor.red.cgColor, UIColor.yellow.cgColor]
-//        gradientLayer.colors = [colors[0], colors[1]]
-//        gradientLayer.cornerRadius = 20
-//    }
     
 }
