@@ -27,11 +27,16 @@ class UIGraphicView: UIView {
     
     var stepInPixel: CGFloat = 0
     
-    
-    // we will devide all graphic on parts by count datasource
-    var datasource : [Int] = [5, 5, 5, 5, 5, 5, 5, 5, 5, 5 ]
-    
+    let guidesCount = 9
 
+    let datasourceCount = 50
+    
+    var datasource: [Int] = []
+    
+    
+    
+    
+    
     
     
     
@@ -51,6 +56,7 @@ class UIGraphicView: UIView {
         self.layoutIfNeeded()
         layer.cornerRadius = 20
         layer.masksToBounds = true
+        datasource = createDatarource(count: datasourceCount)
     }
     
     
@@ -64,10 +70,12 @@ class UIGraphicView: UIView {
     }
     
     
-    func addStep(value: Int){
-        pushArrayWithValue(value: value)
-        clear()
-        setNeedsDisplay()
+    func pushValue(value: Int){
+        if(value <= datasourceCount){
+            pushArrayWithValue(value: value)
+            clear()
+            setNeedsDisplay()
+        }
     }
     
     
@@ -77,13 +85,24 @@ class UIGraphicView: UIView {
     }
     
     
+    
+    func createDatarource(count: Int) -> [Int]{
+        var res : [Int] = []
+        let middleValue = count / 2
+        
+        for _ in 1 ..< count{
+            res.append(middleValue)
+        }
+        
+        return res
+    }
+    
     func pushArrayWithValue(value: Int){
         var newDatasource: [Int] = []
             newDatasource.append(value)
         
-            for i  in datasource {
-                newDatasource.append(i)
-            }
+            datasource.forEach {
+                (value) in newDatasource.append(value )}
         
             newDatasource.removeLast()
             datasource = newDatasource
@@ -111,7 +130,7 @@ class UIGraphicView: UIView {
         var offset = step
         
         
-        for _ in 1 ..< datasource.count - 1{
+        for _ in 1 ..< guidesCount{
            
             guidePath.move(to: CGPoint(x:0,  y:offset))
 
@@ -121,12 +140,12 @@ class UIGraphicView: UIView {
             
         }
         
-            guidePath.stroke()
-            guidePath.close()
+        guidePath.stroke()
+        guidePath.close()
     }
     
     func calculateVersicalStep() -> CGFloat{
-        return  sizeOfView / CGFloat((datasource.count - 1))
+        return  sizeOfView / CGFloat(guidesCount)
     }
     
     
@@ -160,7 +179,7 @@ class UIGraphicView: UIView {
     
     
     override func draw(_ rect: CGRect) {
-        
+
         drawGuideLines()
         
         drawGraphic()

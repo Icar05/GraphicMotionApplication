@@ -18,35 +18,36 @@ class ViewController: UIViewController {
     
     var bag = DisposeBag()
     
-    @IBAction func huy(_ sender: Any) {
-        testGraphic()
-    }
-    
-    
+    @IBAction func huy(_ sender: Any) {testGraphic()}
     
     @IBOutlet weak var graphic: UIGraphicView!
     
+    var values :[Int] = []
     
     
-    let values :[Int] = [10, 5, 1, 5, 2, 5,
-                         2, 5, 6, 3, 2, 5,
-                         7, 2, 7, 3, 7, 7,
-                         2, 7, 2, 7 , 1, 3,
-                         5, 2, 4, 4, 6, 7,
-                         2, 3, 6, 7, 3, 7, 7]
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        // 1. create a gesture recognizer (tap gesture)
+        fillValues()
+ 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         
-        // 2. add the gesture recognizer to a view
         graphic.addGestureRecognizer(tapGesture)
     }
     
-    // 3. this method is called when a tap is recognized
+    
+    func fillValues(){
+        for _ in 1 ..< 100{
+            values.append(Int.random(in: 0 ..< 50))
+        }
+        
+    }
+    
+
     @objc func handleTap(sender: UITapGestureRecognizer) {
         testGraphic()
     }
@@ -62,10 +63,12 @@ class ViewController: UIViewController {
     
     
     func testGraphic(){
-
+        
+        
         if isRunning {
             return
         }
+        
         
         isRunning = true
         
@@ -76,7 +79,7 @@ class ViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(
                 onNext: { (value, key) in
-                    self.graphic.addStep(value: value)
+                    self.graphic.pushValue(value: value)
                     print("value -> \(value)")
                     
                 },
