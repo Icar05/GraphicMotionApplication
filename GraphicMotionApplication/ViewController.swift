@@ -37,7 +37,7 @@ class ViewController: UIViewController {
  
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         
-//        graphic.addGestureRecognizer(tapGesture)
+        graphic.addGestureRecognizer(tapGesture)
     }
     
     
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(
                 onNext: { (value, key) in
-//                    self.graphic.pushValue(value: value)
+                    self.graphic.pushValue(value: value)
                     print("value -> \(value)")
                     
                 },
