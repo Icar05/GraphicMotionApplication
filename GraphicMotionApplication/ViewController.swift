@@ -8,11 +8,12 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
+
+
 
 class ViewController: UIViewController {
 
-    
+  
     
     var isRunning  = false
     
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
     
     var values :[Int] = []
     
-    
+    let provider = DataProvider()
     
     
     
@@ -36,7 +37,7 @@ class ViewController: UIViewController {
  
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         
-        graphic.addGestureRecognizer(tapGesture)
+//        graphic.addGestureRecognizer(tapGesture)
     }
     
     
@@ -60,17 +61,17 @@ class ViewController: UIViewController {
     
     
     
-    
-    
     func testGraphic(){
         
         
         if isRunning {
+            provider.stopUpdates()
             return
         }
         
         
         isRunning = true
+        provider.startUpdates()
         
         (Observable.zip(
             Observable.from(values),
@@ -79,7 +80,7 @@ class ViewController: UIViewController {
             .observeOn(MainScheduler.instance)
             .subscribe(
                 onNext: { (value, key) in
-                    self.graphic.pushValue(value: value)
+//                    self.graphic.pushValue(value: value)
                     print("value -> \(value)")
                     
                 },

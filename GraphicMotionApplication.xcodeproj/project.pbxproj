@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A116BC8220FB8A800B01F0B /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A116BC7220FB8A800B01F0B /* DataProvider.swift */; };
+		1A8501C4221203D7005A781B /* UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8501C3221203D7005A781B /* UITest.swift */; };
 		6DD0EAA2C0FF5716862FF7EF /* Pods_GraphicMotionApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B295C5615E1C1F1C3399913F /* Pods_GraphicMotionApplication.framework */; };
 		9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACC220D8BC700C00732 /* AppDelegate.swift */; };
 		9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACE220D8BC700C00732 /* ViewController.swift */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A116BC7220FB8A800B01F0B /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		1A8501C3221203D7005A781B /* UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITest.swift; sourceTree = "<group>"; };
 		6310553E85847243228C565A /* Pods-GraphicMotionApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphicMotionApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphicMotionApplication/Pods-GraphicMotionApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		9BE52AC9220D8BC700C00732 /* GraphicMotionApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphicMotionApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE52ACC220D8BC700C00732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 				9BE52AD3220D8BC900C00732 /* Assets.xcassets */,
 				9BE52AD5220D8BC900C00732 /* LaunchScreen.storyboard */,
 				9BE52AD8220D8BC900C00732 /* Info.plist */,
+				1A116BC7220FB8A800B01F0B /* DataProvider.swift */,
 			);
 			path = GraphicMotionApplication;
 			sourceTree = "<group>";
@@ -78,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				9BE52ADF220D90F200C00732 /* UIGraphicView.swift */,
+				1A8501C3221203D7005A781B /* UITest.swift */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -224,7 +230,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */,
+				1A8501C4221203D7005A781B /* UITest.swift in Sources */,
 				9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */,
+				1A116BC8220FB8A800B01F0B /* DataProvider.swift in Sources */,
 				9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
