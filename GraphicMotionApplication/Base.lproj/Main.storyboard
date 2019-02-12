@@ -33,12 +33,12 @@
                                         <color key="value" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="graphicColor">
-                                        <color key="value" red="0.44783270216366827" green="0.1177663315738226" blue="0.45048778553299496" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="value" red="1" green="0.17418509398031101" blue="0.093026077947906294" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" red="0.1160679172" green="0.54044273300000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Nze-vp-TTn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="8l1-vV-2Kb"/>
                             <constraint firstItem="Nze-vp-TTn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="L7e-2P-7Yc"/>
@@ -51,7 +51,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="36" y="25.637181409295355"/>
+            <point key="canvasLocation" x="34.782608695652179" y="25.271739130434785"/>
         </scene>
     </scenes>
 </document>

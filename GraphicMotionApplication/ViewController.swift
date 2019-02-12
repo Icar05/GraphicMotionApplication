@@ -13,19 +13,17 @@ import RxSwift
 
 class ViewController: UIViewController {
 
-  
-    
-    var isRunning  = false
-    
-    var bag = DisposeBag()
-    
-    @IBAction func huy(_ sender: Any) {testGraphic()}
+
     
     @IBOutlet weak var graphic: UIGraphicView!
     
-    var values :[Int] = []
+    let provider: Provider = DataProvider()
     
-    let provider = DataProvider()
+    var isRunning  = true
+    
+    var bag = DisposeBag()
+    
+    
     
     
     
@@ -33,63 +31,39 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        fillValues()
- 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
         
         graphic.addGestureRecognizer(tapGesture)
+        
+        subscribeToProvider()
     }
     
     
-    func fillValues(){
-        for _ in 1 ..< 100{
-            values.append(Int.random(in: 0 ..< 50))
-        }
-        
+    func subscribeToProvider(){
+           provider.getUpdates()
+                .observeOn(MainScheduler.instance)
+                .subscribe(
+                   onNext: { (n) in
+                    print("onNext -> \(n) ")
+                    self.graphic.pushValue(value: n)
+                }, onError: { (error) in
+                    print("Error with sensor -> \(error.localizedDescription) ")
+                }, onCompleted: {
+                    print("complete asselerate emits")
+                }, onDisposed: {
+                    self.provider.stopUpdates()
+                    print("dispose values")
+                }).disposed(by: bag)
     }
     
 
     @objc func handleTap(sender: UITapGestureRecognizer) {
-        testGraphic()
-    }
-
-    
-    @IBAction func startDraw(_ sender: Any) {
-        testGraphic()
+        isRunning = !isRunning
+        isRunning ? provider.stopUpdates() : provider.startUpdates()
     }
     
     
-    
-    
-    func testGraphic(){
-        
-        
-        if isRunning {
-            provider.stopUpdates()
-            return
-        }
-        
-        
-        isRunning = true
-        provider.startUpdates()
-        
-        (Observable.zip(
-            Observable.from(values),
-            Observable<Int>.interval(RxTimeInterval(0.1),
-            scheduler: MainScheduler.instance))
-            .observeOn(MainScheduler.instance)
-            .subscribe(
-                onNext: { (value, key) in
-                    self.graphic.pushValue(value: value)
-                    print("value -> \(value)")
-                    
-                },
-                onCompleted: {
-                    self.isRunning = false
-                }
-                ) as Disposable)
-                        .disposed(by: bag)
-                }
+   
 
 }
 
