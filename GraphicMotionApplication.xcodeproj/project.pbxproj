@@ -17,6 +17,9 @@
 		9BE52AD4220D8BC900C00732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD3220D8BC900C00732 /* Assets.xcassets */; };
 		9BE52AD7220D8BC900C00732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD5220D8BC900C00732 /* LaunchScreen.storyboard */; };
 		9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ADF220D90F200C00732 /* UIGraphicView.swift */; };
+		EDE4C8A627AD778F0088A5BF /* UISmartGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */; };
+		EDE4C8A827AD8C870088A5BF /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A727AD8C870088A5BF /* Queue.swift */; };
+		EDE4C8AA27ADB45A0088A5BF /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		9BE52ADF220D90F200C00732 /* UIGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGraphicView.swift; sourceTree = "<group>"; };
 		AEF288F3C335DCA58142E4DC /* Pods-GraphicMotionApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphicMotionApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraphicMotionApplication/Pods-GraphicMotionApplication.release.xcconfig"; sourceTree = "<group>"; };
 		B295C5615E1C1F1C3399913F /* Pods_GraphicMotionApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphicMotionApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISmartGraphicView.swift; sourceTree = "<group>"; };
+		EDE4C8A727AD8C870088A5BF /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +92,8 @@
 				9BE52AD3220D8BC900C00732 /* Assets.xcassets */,
 				9BE52AD5220D8BC900C00732 /* LaunchScreen.storyboard */,
 				9BE52AD8220D8BC900C00732 /* Info.plist */,
+				EDE4C8A727AD8C870088A5BF /* Queue.swift */,
+				EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */,
 			);
 			path = GraphicMotionApplication;
 			sourceTree = "<group>";
@@ -95,6 +103,7 @@
 			children = (
 				9BE52ADF220D90F200C00732 /* UIGraphicView.swift */,
 				1A8501C3221203D7005A781B /* UITest.swift */,
+				EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */,
 			);
 			path = custom;
 			sourceTree = "<group>";
@@ -240,9 +249,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDE4C8AA27ADB45A0088A5BF /* RuntimeError.swift in Sources */,
 				9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */,
 				1A8501C4221203D7005A781B /* UITest.swift in Sources */,
 				1ABFCC5922123FC2009B4E8B /* Provider.swift in Sources */,
+				EDE4C8A827AD8C870088A5BF /* Queue.swift in Sources */,
+				EDE4C8A627AD778F0088A5BF /* UISmartGraphicView.swift in Sources */,
 				9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */,
 				1A116BC8220FB8A800B01F0B /* DataProvider.swift in Sources */,
 				9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */,

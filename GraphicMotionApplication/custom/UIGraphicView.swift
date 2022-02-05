@@ -10,28 +10,30 @@ import UIKit
 
 @IBDesignable
 class UIGraphicView: UIView {
-
+    
     
     
     @IBInspectable var bC: UIColor = UIColor.black
     
-    @IBInspectable var guideColor: UIColor = UIColor.red
+    @IBInspectable var guideColor: UIColor = UIColor.gray
     
     @IBInspectable var graphicColor: UIColor = UIColor.white
-
-    var sizeOfView: CGFloat = 200
-
-    var startPointX: CGFloat = 0
-
-    var startPointY: CGFloat = 0
-
-    var stepInPixel: CGFloat = 0
-
+    
+    let sizeOfView: CGFloat = 200
+    
     let guidesCount = 9
-
-    let datasourceCount = 50
-
-    var datasource: [Int] = []
+    
+    let horizontalOffset = 20
+    
+    let maxDataSourceCount = 50
+    
+    var startPointX: CGFloat = 0
+    
+    var startPointY: CGFloat = 0
+    
+    var stepInPixel: CGFloat = 0
+    
+    var datasource: Queue<Int> = Queue()
     
     var graphicPath = UIBezierPath()
     
@@ -59,7 +61,7 @@ class UIGraphicView: UIView {
         setup()
     }
     
-    
+    //to avoid size bigger than sizeOfView
     override var bounds: CGRect {
         didSet {
             self.frame = CGRect(x: 0, y: 0, width: sizeOfView, height: sizeOfView)
@@ -67,14 +69,17 @@ class UIGraphicView: UIView {
     }
     
     
-    func setup(){
+    private func setup(){
         self.layer.bounds.size = CGSize(width: CGFloat(sizeOfView), height: CGFloat(sizeOfView))
         self.backgroundColor = bC
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
-        self.datasource = createDatarource(count: datasourceCount)
+        
+        let values = createEmptyValues(count: maxDataSourceCount)
+        self.datasource.setup(values)
+        
         self.startPointY  = sizeOfView / 2
-        self.stepInPixel  =  sizeOfView / CGFloat(datasource.count)
+        self.stepInPixel  =  sizeOfView / CGFloat(datasource.count())
     }
     
     
@@ -85,121 +90,79 @@ class UIGraphicView: UIView {
     }
     
     
-    
-    
-    
-    func drawGuideLines(){
-    
-                guideColor.setStroke()
-    
-                guidePath.stroke()
-    
-            let step = calculateVersicalStep()
-    
-            var offset = step
-    
-    
-            for _ in 1 ..< guidesCount{
-    
-                guidePath.move(to: CGPoint(x:0,  y:offset))
-    
-                guidePath.addLine(to: CGPoint(x: bounds.width, y:offset))
-    
-                offset  = offset + step
-    
-            }
-    
-            guidePath.stroke()
-            guidePath.close()
-    }
-    
-    
-    
-    
-    
-    //calculation
-    func calculateVersicalStep() -> CGFloat{
-        return  sizeOfView / CGFloat(guidesCount)
-    }
-    
-    
-    
-    
-    func drawGraphic(){
+    private func drawGuideLines(){
         
-        graphicColor.setStroke()
-    
-        startPointX = 0
-    
-        startPointY = calculateStepHeight(value: datasource[0])
-    
-        for i: Int in datasource {
-    
-            graphicPath.move(to: CGPoint(x:startPointX, y:startPointY))
-    
-            startPointX = startPointX + stepInPixel
-    
-            startPointY = calculateStepHeight(value: i)
-    
-            graphicPath.addLine(to: CGPoint(x: startPointX, y:startPointY))
-    
-            graphicPath.stroke()
-    
+        guideColor.setStroke()
+        guidePath.stroke()
+        
+        let step = sizeOfView / CGFloat(guidesCount)
+        var offset = step
+        
+        
+        for _ in 1 ..< guidesCount{
+            guidePath.move(to: CGPoint(x:0,  y:offset))
+            guidePath.addLine(to: CGPoint(x: bounds.width, y:offset))
+            
+            offset  = offset + step
         }
+        
+        guidePath.stroke()
+        guidePath.close()
+    }
     
+    
+    private func drawGraphic(){
+            
+        startPointX = 0
+        startPointY = calculateStepHeight(value: datasource.getElement(index: 0))
+        
+        for i: Int in datasource.getElements() {
+            
+            graphicPath = UIBezierPath()
+            getColor(yValue: startPointY).setStroke()
+            
+            graphicPath.move(to: CGPoint(x:startPointX, y:startPointY))
+            
+            startPointX = startPointX + stepInPixel
+            startPointY = calculateStepHeight(value: i)
+            
+            graphicPath.addLine(to: CGPoint(x: startPointX, y:startPointY))
+            graphicPath.stroke()
+            
+        }
+        
         graphicPath.close()
     }
     
     
+    private func getColor(yValue: CGFloat) -> UIColor{
+        let center = sizeOfView / 2
+        
+        if(yValue > center + CGFloat(horizontalOffset)){
+            return UIColor.red
+        }else if (yValue < center - CGFloat(horizontalOffset)){
+            return UIColor.green
+        }else{
+            return UIColor.orange
+        }
+    }
     
-    func calculateStepHeight(value: Int) -> CGFloat{
+    private func calculateStepHeight(value: Int) -> CGFloat{
         return CGFloat(value) * stepInPixel
     }
     
     
-    func createDatarource(count: Int) -> [Int]{
-        var res : [Int] = []
+    private func createEmptyValues(count: Int) -> [Int]{
         let middleValue = count / 2
-    
-        for _ in 1 ..< count{
-            res.append(middleValue)
-        }
-    
-        return res
+        return [Int](repeating: middleValue, count: count)
     }
-    
-    
     
     func pushValue(value: Int){
-        if(value <= datasourceCount){
-            pushArrayWithValue(value: value)
-            clear()
-            setNeedsDisplay()
-        }
+        self.datasource.push(value)
+        self.layer.sublayers = nil
+        self.graphicPath = UIBezierPath()
+        self.setNeedsDisplay()
     }
     
-    
-    
-    
-    func clear(){
-        layer.sublayers = nil;
-        graphicPath = UIBezierPath()
-    }
-    
-    
-
-    
-    func pushArrayWithValue(value: Int){
-        var newDatasource: [Int] = []
-            newDatasource.append(value)
-        
-            datasource.forEach {
-                (value) in newDatasource.append(value )}
-        
-            newDatasource.removeLast()
-            datasource = newDatasource
-    }
-
-
     
 }
