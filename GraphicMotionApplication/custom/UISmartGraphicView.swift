@@ -150,7 +150,7 @@ class UISmartGraphicView: UIView {
     
     
     private func drawMultyLines(start: CGPoint, end: CGPoint){
-        print(" --- cross center: \(start.y), \(end.y)")
+//        print(" --- cross center: \(start.y), \(end.y)")
         
         let firstLineStartY = start.y
         let firstLineEndY = sizeOfView / 2
