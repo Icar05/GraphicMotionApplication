@@ -20,15 +20,36 @@ class UITest: UIView {
     
     @IBInspectable var graphicColor: UIColor = UIColor.white
     
-    let sizeOfView: CGFloat = 200
+    @IBInspectable var positiveColor: UIColor = UIColor.green
     
-    var graphicPath = UIBezierPath()
+    @IBInspectable var negativeColor: UIColor = UIColor.red
     
-    let calc = CrossCalculator()
+    @IBInspectable var centerColor: UIColor = UIColor.yellow
     
-    let markSize = 2
+    @IBInspectable var needDebug: Bool = false
     
-    let guidesCount = 4
+    @IBInspectable var guidesCount: Int {
+        get { return _guidesCount }
+        set { if(newValue > 3 && newValue < 10){
+            _guidesCount = newValue
+        } }
+    }
+
+    private var graphicPath: UIBezierPath = UIBezierPath()
+    
+    private let sizeOfView: CGFloat = 200
+        
+    private let calc = CrossCalculator()
+    
+    private let defaultDataSourceCount = 50
+    
+    private let markSize = 2
+    
+    private var _guidesCount = 4
+        
+    private var datasource: Queue<Int> = Queue()
+    
+    private var maxDataSourceValue: CGFloat = 0
     
     
     
@@ -50,7 +71,7 @@ class UITest: UIView {
         setup()
     }
     
-
+    
     override var bounds: CGRect {
         didSet {
             self.frame = CGRect(x: 0, y: 0, width: sizeOfView, height: sizeOfView)
@@ -63,23 +84,24 @@ class UITest: UIView {
         self.backgroundColor = bC
         self.layer.cornerRadius = 20
         self.layer.masksToBounds = true
+        self.setupDefaultData()
+    }
+    
+    
+    private func setupDefaultData(){
+        let values = [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
+        self.datasource.setup(values)
+        self.maxDataSourceValue = CGFloat(self.datasource.getElements().max()!)
     }
     
     override func draw(_ rect: CGRect) {
-        drawTest()
-    }
-    
-    
-    private func drawTest(){
+        self.drawGuides(count: guidesCount, color: guideColor)
+        self.drawGraphic(array: datasource.getElements())
         
-        let array = [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
-        
-        self.drawGuides(count: guidesCount, color: UIColor.gray)
-        self.drawCenterLine(color: .white)
-        
-    
-        self.drawGraphic(array: array)
-        self.drawMarks(array: array)
+        if(needDebug){
+            self.drawCenterLine(color: centerColor)
+            self.drawMarks(array: datasource.getElements())
+        }
         
     }
     
@@ -127,8 +149,8 @@ class UITest: UIView {
                 end1: end,
                 start2: centerPointStart,
                 end2: centerPointEnd)!
-        
-                    
+            
+            
             self.drawLine(startCoords: CGPoint(x: start.x, y: start.y),
                           endCoords: CGPoint(x: crossPoint.x, y: crossPoint.y),
                           color: getColorForMultyLine(start: start.y, end: crossPoint.y))
@@ -140,7 +162,7 @@ class UITest: UIView {
             return
         }
         
-    
+        
         self.drawLine(
             startCoords: CGPoint(x: start.x, y: start.y),
             endCoords: CGPoint(x: end.x, y: end.y),
@@ -202,7 +224,7 @@ class UITest: UIView {
             )
         }
     }
-
+    
     
     private func drawMark(point: CGPoint, color: UIColor, size: CGFloat){
         let startX = point.x - size
@@ -224,23 +246,52 @@ class UITest: UIView {
     
     private func getColorForMultyLine(start: CGFloat, end: CGFloat) -> UIColor{
         let centerY = CGFloat(sizeOfView / 2)
-        return (start > centerY || end > centerY) ? UIColor.red : UIColor.green
+        return (start > centerY || end > centerY) ? negativeColor : positiveColor
     }
     
     private func getColorForLinestartY(startY: CGFloat, endY: CGFloat) -> UIColor{
         let centerY = CGFloat(sizeOfView / 2)
         let middleAge = (startY + endY) / 2
-        return middleAge > centerY ? UIColor.red : UIColor.green
+        return middleAge > centerY ? negativeColor : positiveColor
     }
     
     private func crossesTheCentralLine(startY: CGFloat, newY: CGFloat) -> Bool{
         let centerY = CGFloat(sizeOfView / 2)
         return between(start: startY, end: newY, target: centerY) ||
-               between(start: newY, end: newY, target: startY)
+        between(start: newY, end: startY, target: centerY)
     }
     
     private func between(start: CGFloat, end: CGFloat, target: CGFloat) -> Bool{
         return start > target && end < target
+    }
+    
+    
+    func pushValue(value: Int) throws {
+        
+        if(CGFloat(value) > maxDataSourceValue){
+            throw RuntimeError("wrong value: \(value) -> max: \(maxDataSourceValue)")
+        }
+        
+        self.datasource.push(value)
+        self.layer.sublayers = nil
+        self.graphicPath = UIBezierPath()
+        self.setNeedsDisplay()
+        
+        print(datasource)
+    }
+    
+    
+    func setupWithArray(values: [Int]) throws {
+        
+        if(values.count > defaultDataSourceCount){
+            throw RuntimeError("too many start elements")
+        }
+        
+        self.datasource.setup(values)
+        self.maxDataSourceValue = CGFloat(self.datasource.getElements().max()!)
+        self.layer.sublayers = nil
+        self.graphicPath = UIBezierPath()
+        self.setNeedsDisplay()
     }
     
 }

@@ -12,8 +12,10 @@ import RxSwift
 
 
 class ViewController: UIViewController {
-
-
+    
+    
+    
+    @IBOutlet weak var testUI: UITest!
     
     @IBOutlet weak var graphic: UIGraphicView!
     
@@ -25,7 +27,7 @@ class ViewController: UIViewController {
     
     var bag = DisposeBag()
     
-    var dataSource = [2, 6, 2, 6, 13, 6, 22, 7, 39, 2, 5, 2]
+    var dataSource = [2, 9, 4, 12 , 0, 5, 3, 6, 3, 9, 8, 3]
     
     
     override func viewDidLoad() {
@@ -33,27 +35,36 @@ class ViewController: UIViewController {
         
         let tapGestureSimple = UITapGestureRecognizer(target: self, action: #selector(simpleTap(sender:)))
         let tapGestureSmart = UITapGestureRecognizer(target: self, action: #selector(smartTap(sender:)))
-
+        let tapGestureTest = UITapGestureRecognizer(target: self, action: #selector(testTap(sender:)))
+        
         
         graphic.addGestureRecognizer(tapGestureSimple)
         smart.addGestureRecognizer(tapGestureSmart)
+        testUI.addGestureRecognizer(tapGestureTest)
         
         subscribeToProvider()
         
         
         do {
-           try  smart.setupWithArray(values: dataSource)
+            try  smart.setupWithArray(values: dataSource)
         } catch let error {
             print(error.localizedDescription)
         }
+        
+        do {
+            try  testUI.setupWithArray(values: dataSource)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
     }
     
     
     func subscribeToProvider(){
-           provider.getUpdates()
-                .observeOn(MainScheduler.instance)
-                .subscribe(
-                   onNext: { (n) in
+        provider.getUpdates()
+            .observeOn(MainScheduler.instance)
+            .subscribe(
+                onNext: { (n) in
                     print("onNext -> \(n) ")
                     self.graphic.pushValue(value: n)
                 }, onError: { (error) in
@@ -66,27 +77,39 @@ class ViewController: UIViewController {
                 }).disposed(by: bag)
     }
     
-    
-    @objc func smartTap(sender: UITapGestureRecognizer){
+    @objc func testTap(sender: UITapGestureRecognizer){
         let randomInt = Int.random(in: 0..<dataSource.max()!)
-
+        
         print("random: \(randomInt)")
-    
+        
         do {
-           try  smart.pushValue(value: randomInt)
+            try  testUI.pushValue(value: randomInt)
         } catch let error {
             print(error.localizedDescription)
         }
         
     }
-
+    
+    @objc func smartTap(sender: UITapGestureRecognizer){
+        let randomInt = Int.random(in: 0..<dataSource.max()!)
+        
+        print("random: \(randomInt)")
+        
+        do {
+            try  smart.pushValue(value: randomInt)
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
     @objc func simpleTap(sender: UITapGestureRecognizer) {
         isRunning = !isRunning
         isRunning ? provider.stopUpdates() : provider.startUpdates()
     }
     
     
-   
-
+    
+    
 }
 

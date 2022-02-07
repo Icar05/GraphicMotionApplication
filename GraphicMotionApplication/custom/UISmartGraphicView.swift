@@ -20,6 +20,10 @@ class UISmartGraphicView: UIView {
     
     @IBInspectable var guideColor: UIColor = UIColor.gray
     
+    @IBInspectable var positiveColor: UIColor = UIColor.green
+    
+    @IBInspectable var negativeColor: UIColor = UIColor.red
+    
     let sizeOfView: CGFloat = 200
     
     let guidesCount = 9
@@ -177,7 +181,7 @@ class UISmartGraphicView: UIView {
     private func crossesTheCentralLine(startY: CGFloat, newY: CGFloat) -> Bool{
         let centerY = CGFloat(sizeOfView / 2)
         return between(start: startY, end: newY, target: centerY) ||
-               between(start: newY, end: newY, target: startY)
+               between(start: newY, end: startY, target: centerY)
     }
     
     private func between(start: CGFloat, end: CGFloat, target: CGFloat) -> Bool{
@@ -186,13 +190,13 @@ class UISmartGraphicView: UIView {
     
     private func getColorForMultyLine(startY: CGFloat, endY: CGFloat) -> UIColor{
         let centerY = CGFloat(sizeOfView / 2)
-        return (startY > centerY || endY > centerY) ? UIColor.red : UIColor.green
+        return (startY > centerY || endY > centerY) ? negativeColor : positiveColor
     }
     
     private func getColorForLinestartY(startY: CGFloat, endY: CGFloat) -> UIColor{
         let centerY = CGFloat(sizeOfView / 2)
         let middleAge = (startY + endY) / 2
-        return middleAge > centerY ? UIColor.red : UIColor.green
+        return middleAge > centerY ? negativeColor : positiveColor
     }
     
     private func calculateHorizontalCoord(index: Int) -> CGFloat{
