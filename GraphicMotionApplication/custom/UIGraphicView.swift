@@ -61,14 +61,6 @@ class UIGraphicView: UIView {
         setup()
     }
     
-    //to avoid size bigger than sizeOfView
-    override var bounds: CGRect {
-        didSet {
-            self.frame = CGRect(x: 0, y: 0, width: sizeOfView, height: sizeOfView)
-        }
-    }
-    
-    
     private func setup(){
         self.layer.bounds.size = CGSize(width: CGFloat(sizeOfView), height: CGFloat(sizeOfView))
         self.backgroundColor = bC
@@ -153,8 +145,10 @@ class UIGraphicView: UIView {
     
     
     private func createEmptyValues(count: Int) -> [Int]{
-        let middleValue = count / 2
-        return [Int](repeating: middleValue, count: count)
+//        let middleValue = count / 2
+//        return [Int](repeating: middleValue, count: count)
+        
+        return [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
     }
     
     func pushValue(value: Int){

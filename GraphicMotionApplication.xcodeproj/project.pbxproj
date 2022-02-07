@@ -17,6 +17,7 @@
 		9BE52AD4220D8BC900C00732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD3220D8BC900C00732 /* Assets.xcassets */; };
 		9BE52AD7220D8BC900C00732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD5220D8BC900C00732 /* LaunchScreen.storyboard */; };
 		9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ADF220D90F200C00732 /* UIGraphicView.swift */; };
+		ED20058D27B161CF002A5DA1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED20058C27B161CF002A5DA1 /* DetailViewController.swift */; };
 		ED59581F27B08E3500B8176F /* CrossCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED59581E27B08E3500B8176F /* CrossCalculation.swift */; };
 		EDE4C8A627AD778F0088A5BF /* UISmartGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */; };
 		EDE4C8A827AD8C870088A5BF /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A727AD8C870088A5BF /* Queue.swift */; };
@@ -38,6 +39,7 @@
 		9BE52ADF220D90F200C00732 /* UIGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGraphicView.swift; sourceTree = "<group>"; };
 		AEF288F3C335DCA58142E4DC /* Pods-GraphicMotionApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphicMotionApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraphicMotionApplication/Pods-GraphicMotionApplication.release.xcconfig"; sourceTree = "<group>"; };
 		B295C5615E1C1F1C3399913F /* Pods_GraphicMotionApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphicMotionApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED20058C27B161CF002A5DA1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		ED59581E27B08E3500B8176F /* CrossCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossCalculation.swift; sourceTree = "<group>"; };
 		EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISmartGraphicView.swift; sourceTree = "<group>"; };
 		EDE4C8A727AD8C870088A5BF /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				9BE52AD8220D8BC900C00732 /* Info.plist */,
 				EDE4C8A727AD8C870088A5BF /* Queue.swift */,
 				EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */,
+				ED20058C27B161CF002A5DA1 /* DetailViewController.swift */,
 			);
 			path = GraphicMotionApplication;
 			sourceTree = "<group>";
@@ -157,7 +160,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1320;
 				ORGANIZATIONNAME = ipinguin_linuxoid;
 				TargetAttributes = {
 					9BE52AC8220D8BC700C00732 = {
@@ -252,6 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED20058D27B161CF002A5DA1 /* DetailViewController.swift in Sources */,
 				EDE4C8AA27ADB45A0088A5BF /* RuntimeError.swift in Sources */,
 				9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */,
 				ED59581F27B08E3500B8176F /* CrossCalculation.swift in Sources */,
@@ -313,6 +317,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -374,6 +379,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
