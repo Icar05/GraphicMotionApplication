@@ -17,9 +17,7 @@ class UITest: UIView {
     @IBInspectable var bC: UIColor = UIColor.black
     
     @IBInspectable var guideColor: UIColor = UIColor.gray
-    
-    @IBInspectable var graphicColor: UIColor = UIColor.white
-    
+        
     @IBInspectable var positiveColor: UIColor = UIColor.green
     
     @IBInspectable var negativeColor: UIColor = UIColor.red
