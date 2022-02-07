@@ -151,30 +151,14 @@ class UISmartGraphicView: UIView {
     
     private func drawMultyLines(start: CGPoint, end: CGPoint){
         
-        let firstLineStartY = start.y
-        let firstLineEndY = sizeOfView / 2
-        let firstLineStartX = start.x
-        let firstLineEndX = start.x
+        self.drawLine(start: CGPoint(x: start.x, y: start.y),
+                      end: CGPoint(x: start.x, y: sizeOfView / 2),
+                      color: getColorForMultyLine(startY: start.y, endY:sizeOfView / 2))
+
         
-        let fColor = getColorForMultyLine(startY: start.y, endY:sizeOfView / 2)
-        
-        self.drawLine(start: CGPoint(x: firstLineStartX, y: firstLineStartY),
-                      end: CGPoint(x: firstLineEndX, y: firstLineEndY),
-                      color: fColor)
-        
-        
-        let secondLineStartY = sizeOfView / 2
-        let secondLineEndY = end.y
-        let secondLineStartX = end.x
-        let secondLineEndX = end.x
-        
-        let sColor = getColorForMultyLine(startY: sizeOfView / 2, endY:end.y)
-        
-        self.drawLine(start: CGPoint(x: secondLineStartX, y: secondLineStartY),
-                      end: CGPoint(x: secondLineEndX, y: secondLineEndY),
-                      color: sColor)
-        
-        
+        self.drawLine(start: CGPoint(x: end.x, y: sizeOfView / 2),
+                      end: CGPoint(x: end.x, y: end.y),
+                      color: getColorForMultyLine(startY: sizeOfView / 2, endY:end.y))
     }
     
     
