@@ -7,7 +7,7 @@ target 'GraphicMotionApplication' do
 
   # Pods for GraphicMotionApplication
 
-	pod 'RxSwift',    '~> 4.0'
-    	pod 'RxCocoa',    '~> 4.0'
+	pod 'RxSwift'
+    pod 'RxCocoa'
 
 end
