@@ -22,7 +22,7 @@ class UITest: UIView {
     
     @IBInspectable var negativeColor: UIColor = UIColor.red
     
-    @IBInspectable var centerColor: UIColor = UIColor.yellow
+    @IBInspectable var debugHorizontalGuideColor: UIColor = UIColor.yellow
     
     @IBInspectable var needDebug: Bool = false
     
@@ -97,7 +97,7 @@ class UITest: UIView {
         self.drawGraphic(array: datasource.getElements())
         
         if(needDebug){
-            self.drawCenterLine(color: centerColor)
+            self.drawCenterLine(color: debugHorizontalGuideColor)
             self.drawMarks(array: datasource.getElements())
         }
         
