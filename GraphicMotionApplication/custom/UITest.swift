@@ -11,7 +11,7 @@ import UIKit
 
 @IBDesignable
 class UITest: UIView {
-
+    
     
     
     @IBInspectable var bC: UIColor = UIColor.black
@@ -20,14 +20,17 @@ class UITest: UIView {
     
     @IBInspectable var graphicColor: UIColor = UIColor.white
     
-    var sizeOfView: CGFloat = 200
-    
-    let guidesCount = 9
+    let sizeOfView: CGFloat = 200
     
     var graphicPath = UIBezierPath()
     
-    var guidePath = UIBezierPath()
-
+    let calc = CrossCalculator()
+    
+    let markSize = 2
+    
+    let guidesCount = 4
+    
+    
     
     
     override func prepareForInterfaceBuilder(){
@@ -47,10 +50,7 @@ class UITest: UIView {
         setup()
     }
     
-    
 
-    
-    
     override var bounds: CGRect {
         didSet {
             self.frame = CGRect(x: 0, y: 0, width: sizeOfView, height: sizeOfView)
@@ -66,30 +66,103 @@ class UITest: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        drawGuideLines()
-        drawLines()
+        drawTest()
     }
     
     
-    private func drawLines(){
-
+    private func drawTest(){
         
-        let tempHeight = (sizeOfView / 3 ) - 10
-        let tempWidth = sizeOfView / 3
+        let array = [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
         
+        self.drawGuides(count: guidesCount, color: UIColor.gray)
+        self.drawCenterLine(color: .white)
         
-        self.drawLine(startCoords: CGPoint(x: 0, y: tempHeight),
-                      endCoords: CGPoint(x: tempWidth, y: tempHeight),
-                      color: UIColor.red)
+    
+        self.drawGraphic(array: array)
+        self.drawMarks(array: array)
         
-        self.drawLine(startCoords: CGPoint(x: tempWidth, y: tempHeight * 2),
-                      endCoords: CGPoint(x: tempWidth * 2, y: tempHeight * 2),
-                      color: UIColor.yellow)
+    }
+    
+    
+    private func drawGraphic(array: [Int]){
         
-        self.drawLine(startCoords: CGPoint(x: tempWidth * 2, y: tempHeight * 3),
-                      endCoords: CGPoint(x: tempWidth * 3, y: tempHeight * 3),
-                      color: UIColor.green)
+        let horizontalOffset = CGFloat(sizeOfView) / CGFloat(array.count)
+        let verticalOffset = CGFloat(sizeOfView) / CGFloat(array.max()!)
         
+        var startX: CGFloat = 0
+        var startY: CGFloat = sizeOfView / 2
+        var endX: CGFloat = 0
+        var endY: CGFloat = 0
+        
+        for index in 0 ..< array.count + 1{
+            
+            if(index == array.count){
+                endX = sizeOfView
+                endY = sizeOfView / 2
+            }else{
+                endX = (CGFloat(index) * horizontalOffset) + (horizontalOffset / 2)
+                endY = (CGFloat(array[index]) * verticalOffset ) - (verticalOffset / 2)
+            }
+            
+            self.drawGraphicLine(
+                start: CGPoint(x: startX , y:startY ),
+                end: CGPoint(x: endX, y:endY),
+                index: index
+            )
+            
+            startX = endX
+            startY = endY
+        }
+    }
+    
+    private func drawGraphicLine(start: CGPoint, end: CGPoint, index: Int){
+        
+        let center = sizeOfView / 2
+        let centerPointStart = CGPoint(x: 0, y: center)
+        let centerPointEnd = CGPoint(x: sizeOfView, y: center)
+        
+        if(crossesTheCentralLine(startY: start.y, newY: end.y)){
+            let crossPoint = calc.linesCross(
+                start1: start,
+                end1: end,
+                start2: centerPointStart,
+                end2: centerPointEnd)!
+        
+                    
+            self.drawLine(startCoords: CGPoint(x: start.x, y: start.y),
+                          endCoords: CGPoint(x: crossPoint.x, y: crossPoint.y),
+                          color: getColorForMultyLine(start: start.y, end: crossPoint.y))
+            
+            self.drawLine(startCoords: CGPoint(x: crossPoint.x, y: crossPoint.y),
+                          endCoords: CGPoint(x: end.x, y: end.y),
+                          color: getColorForMultyLine(start: crossPoint.y, end: end.y))
+            
+            return
+        }
+        
+    
+        self.drawLine(
+            startCoords: CGPoint(x: start.x, y: start.y),
+            endCoords: CGPoint(x: end.x, y: end.y),
+            color: getColorForLinestartY(startY: start.y, endY: end.y))
+    }
+    
+    
+    private func drawMarks(array: [Int]){
+        
+        let horizontalOffset = CGFloat(sizeOfView) / CGFloat(array.count)
+        let verticalOffset = CGFloat(sizeOfView) / CGFloat(array.max()!)
+        
+        for index in 0 ..< array.count{
+            
+            let model = array[index]
+            
+            let x = (CGFloat(index) * horizontalOffset) + (horizontalOffset / 2)
+            let y = (CGFloat(model) * verticalOffset ) - (verticalOffset / 2)
+            
+            let coords = CGPoint(x: x, y: y)
+            self.drawMark(point: coords, color: UIColor.white, size: CGFloat(markSize))
+        }
         
     }
     
@@ -103,61 +176,71 @@ class UITest: UIView {
         graphicPath.close()
     }
     
-    private func drawGuideLines(){
+    private func drawCenterLine(color: UIColor){
+        self.drawLine(
+            startCoords: CGPoint(x: 0, y: sizeOfView / 2),
+            endCoords: CGPoint(x: sizeOfView, y: sizeOfView / 2),
+            color: color)
+    }
+    
+    private func drawGuides(count: Int, color: UIColor){
+        let offset = CGFloat(sizeOfView) / CGFloat(count)
         
-        guideColor.setStroke()
-        
-        let step = sizeOfView / CGFloat(guidesCount)
-        var offset = step
-        
-        
-        for _ in 1 ..< guidesCount{
-            guidePath.move(to: CGPoint(x:0,  y:offset))
-            guidePath.addLine(to: CGPoint(x: bounds.width, y:offset))
+        for index in 1 ..< count{
+            let startY: CGFloat = CGFloat(index) * offset
+            self.drawLine(
+                startCoords: CGPoint(x: 0, y: startY),
+                endCoords: CGPoint(x: sizeOfView, y: startY),
+                color: color
+            )
             
-            offset  = offset + step
+            let startX: CGFloat = CGFloat(index) * offset
+            self.drawLine(
+                startCoords: CGPoint(x: startX, y: 0),
+                endCoords: CGPoint(x: startX, y: sizeOfView),
+                color: color
+            )
         }
+    }
+
+    
+    private func drawMark(point: CGPoint, color: UIColor, size: CGFloat){
+        let startX = point.x - size
+        let startY = point.y - size
+        let endX = point.x + size
+        let endY = point.y + size
         
-        guidePath.stroke()
-        guidePath.close()
+        self.drawLine(
+            startCoords: CGPoint(x: startX, y: startY),
+            endCoords: CGPoint(x: endX, y: endY),
+            color: color)
+        
+        self.drawLine(
+            startCoords: CGPoint(x: endX, y: startY),
+            endCoords: CGPoint(x: startX, y: endY),
+            color: color)
     }
     
     
-    private func getColorForLinestartY(startY: CGFloat, newY: CGFloat) -> UIColor{
-       
-        
+    private func getColorForMultyLine(start: CGFloat, end: CGFloat) -> UIColor{
         let centerY = CGFloat(sizeOfView / 2)
-        
-        print("start: \(startY), end: \(newY), center: \(centerY)")
-        
-        if(startY > centerY && newY > centerY){
-            print("red")
-            return UIColor.red
-        }
-        
-        if(startY < centerY && newY < centerY){
-            print("green")
-            return UIColor.green
-        }
-        
-        print("yellow")
-        return UIColor.yellow
+        return (start > centerY || end > centerY) ? UIColor.red : UIColor.green
+    }
+    
+    private func getColorForLinestartY(startY: CGFloat, endY: CGFloat) -> UIColor{
+        let centerY = CGFloat(sizeOfView / 2)
+        let middleAge = (startY + endY) / 2
+        return middleAge > centerY ? UIColor.red : UIColor.green
     }
     
     private func crossesTheCentralLine(startY: CGFloat, newY: CGFloat) -> Bool{
-        
         let centerY = CGFloat(sizeOfView / 2)
-      
-        if(startY > centerY && newY > centerY){
-            return true
-        }
-        
-        if(startY < centerY && newY < centerY){
-            return true
-        }
-        
-        return false
+        return between(start: startY, end: newY, target: centerY) ||
+               between(start: newY, end: newY, target: startY)
     }
-
-
+    
+    private func between(start: CGFloat, end: CGFloat, target: CGFloat) -> Bool{
+        return start > target && end < target
+    }
+    
 }

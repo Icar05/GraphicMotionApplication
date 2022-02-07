@@ -124,7 +124,7 @@ class UISmartGraphicView: UIView {
             self.drawLine(
                 start: CGPoint(x: startPointX, y: startPointY),
                 end: CGPoint(x: startPointX + horizontalOffset, y: startPointY),
-                color: getColorForLinestartY(startY: startPointY, newY:startPointY))
+                color: getColorForLinestartY(startY: startPointY, endY:startPointY))
             
             
             if(index + 1 < datasource.count()){
@@ -139,7 +139,7 @@ class UISmartGraphicView: UIView {
                     self.drawLine(
                         start: CGPoint(x: startPointX + horizontalOffset, y: startPointY),
                         end: CGPoint(x: startPointX + horizontalOffset, y: newCoordY),
-                        color: getColorForLinestartY(startY: startPointY, newY:startPointY))
+                        color: getColorForLinestartY(startY: startPointY, endY:startPointY))
                 }
                 
             }
@@ -150,14 +150,13 @@ class UISmartGraphicView: UIView {
     
     
     private func drawMultyLines(start: CGPoint, end: CGPoint){
-//        print(" --- cross center: \(start.y), \(end.y)")
         
         let firstLineStartY = start.y
         let firstLineEndY = sizeOfView / 2
         let firstLineStartX = start.x
         let firstLineEndX = start.x
         
-        let fColor = getColorForMultyLine(startY: start.y, newY:sizeOfView / 2)
+        let fColor = getColorForMultyLine(startY: start.y, endY:sizeOfView / 2)
         
         self.drawLine(start: CGPoint(x: firstLineStartX, y: firstLineStartY),
                       end: CGPoint(x: firstLineEndX, y: firstLineEndY),
@@ -169,7 +168,7 @@ class UISmartGraphicView: UIView {
         let secondLineStartX = end.x
         let secondLineEndX = end.x
         
-        let sColor = getColorForMultyLine(startY: sizeOfView / 2, newY:end.y)
+        let sColor = getColorForMultyLine(startY: sizeOfView / 2, endY:end.y)
         
         self.drawLine(start: CGPoint(x: secondLineStartX, y: secondLineStartY),
                       end: CGPoint(x: secondLineEndX, y: secondLineEndY),
@@ -192,43 +191,24 @@ class UISmartGraphicView: UIView {
     
     
     private func crossesTheCentralLine(startY: CGFloat, newY: CGFloat) -> Bool{
-        
         let centerY = CGFloat(sizeOfView / 2)
-        
-        if(startY > centerY && newY > centerY){
-            return false
-        }
-        
-        if(startY < centerY && newY < centerY){
-            return false
-        }
-        
-        return true
+        return between(start: startY, end: newY, target: centerY) ||
+               between(start: newY, end: newY, target: startY)
     }
     
-    private func getColorForMultyLine(startY: CGFloat, newY: CGFloat) -> UIColor{
-        let centerY = CGFloat(sizeOfView / 2)
-        
-        if(startY > centerY || newY > centerY){
-            return UIColor.red
-        }
-        
-        return UIColor.green
+    private func between(start: CGFloat, end: CGFloat, target: CGFloat) -> Bool{
+        return start > target && end < target
     }
     
-    private func getColorForLinestartY(startY: CGFloat, newY: CGFloat) -> UIColor{
-        
+    private func getColorForMultyLine(startY: CGFloat, endY: CGFloat) -> UIColor{
         let centerY = CGFloat(sizeOfView / 2)
-        
-        if(startY > centerY && newY > centerY){
-            return UIColor.red
-        }
-        
-        if(startY < centerY && newY < centerY){
-            return UIColor.green
-        }
-        
-        return UIColor.yellow
+        return (startY > centerY || endY > centerY) ? UIColor.red : UIColor.green
+    }
+    
+    private func getColorForLinestartY(startY: CGFloat, endY: CGFloat) -> UIColor{
+        let centerY = CGFloat(sizeOfView / 2)
+        let middleAge = (startY + endY) / 2
+        return middleAge > centerY ? UIColor.red : UIColor.green
     }
     
     private func calculateHorizontalCoord(index: Int) -> CGFloat{
