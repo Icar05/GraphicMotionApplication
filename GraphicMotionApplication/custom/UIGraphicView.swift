@@ -27,6 +27,8 @@ class UIGraphicView: UIView, Graphic {
     
     @IBInspectable var graphicColor: UIColor = UIColor.cyan
     
+    private let audioTool = AudioHelper()
+    
     private let defaultDataSourceCount = 50
     
     private let sizeOfView: CGFloat = 150
@@ -49,7 +51,7 @@ class UIGraphicView: UIView, Graphic {
     
     private var guidePath = UIBezierPath()
     
-    
+    private let sound: Int = SoundsForTest.nice
     
     
     
@@ -157,6 +159,7 @@ class UIGraphicView: UIView, Graphic {
         self.layer.sublayers = nil
         self.graphicPath = UIBezierPath()
         self.setNeedsDisplay()
+        self.audioTool.playAudio(sound: sound)
     }
     
     

@@ -31,6 +31,8 @@ class UISmartGraphicView: UIView, Graphic {
         } }
     }
     
+    private let audioTool = AudioHelper()
+    
     private let sizeOfView: CGFloat = 150
     
     private var _guidesCount = 7
@@ -53,7 +55,7 @@ class UISmartGraphicView: UIView, Graphic {
     
     private var guidePath = UIBezierPath()
     
-    
+    private let sound: Int = SoundsForTest.silentTouch
     
     
     
@@ -233,6 +235,7 @@ class UISmartGraphicView: UIView, Graphic {
         self.layer.sublayers = nil
         self.graphicPath = UIBezierPath()
         self.setNeedsDisplay()
+        self.audioTool.playAudio(sound: sound)
     }
     
     

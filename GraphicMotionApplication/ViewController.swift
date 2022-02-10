@@ -32,9 +32,7 @@ class ViewController: UIViewController {
     private var timer: Timer?
     
     private let numbers = [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
-    
-    private var simultiniously = false
-        
+            
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -53,8 +51,8 @@ class ViewController: UIViewController {
     
     
     func startTimer(){
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { timer in
-            self.simultiniously ? self.updateAll() : self.updateSelected()
+        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+            simultiniouslyUpdate ? self.updateAll() : self.updateSelected()
         }
     }
     

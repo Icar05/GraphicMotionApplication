@@ -35,6 +35,8 @@ class UITest: UIView, Graphic {
     
     private var graphicPath: UIBezierPath = UIBezierPath()
     
+    private let audioTool = AudioHelper()
+    
     private let sizeOfView: CGFloat = 150
     
     private let calc = CrossCalculator()
@@ -48,6 +50,8 @@ class UITest: UIView, Graphic {
     private var datasource: Queue<Int> = Queue()
     
     private var maxDataSourceValue: CGFloat = 0
+    
+    private let sound: Int = SoundsForTest.middleTouch
     
     
     
@@ -277,6 +281,7 @@ class UITest: UIView, Graphic {
         self.layer.sublayers = nil
         self.graphicPath = UIBezierPath()
         self.setNeedsDisplay()
+        self.audioTool.playAudio(sound: sound)
     }
     
     
