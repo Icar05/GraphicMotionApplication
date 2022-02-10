@@ -34,7 +34,7 @@ class ViewController: UIViewController {
     private let numbers = [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
     
     private var simultiniously = false
-    
+        
     @IBOutlet weak var tableView: UITableView!
     
     
@@ -54,10 +54,7 @@ class ViewController: UIViewController {
     
     func startTimer(){
         self.timer = Timer.scheduledTimer(withTimeInterval: 0.2, repeats: true) { timer in
-            for index in 0...self.data.count - 1{
-                let randomNumber = Int.random(in: 1...self.numbers.max()!)
-                self.setNewValueInRowWithValues(index: index, value: randomNumber)
-            }
+            self.simultiniously ? self.updateAll() : self.updateSelected()
         }
     }
     
@@ -103,15 +100,20 @@ extension ViewController: UITableViewDataSource{
     }
     
     
-    private func setNewValueInRowWithValues(index: Int, value: Int){
-        
-        if(!simultiniously){
-            if (value % (index + 1) != 0){
-                return
-            }
+    private func updateSelected(){
+        let randomNumber = Int.random(in: 1...self.numbers.max()!)
+        let randomIndex = Int.random(in: 0...2)
+        setNewValueInRowWithValues(index: randomIndex, value: randomNumber)
+    }
+    
+    private func updateAll(){
+        for index in 0...self.data.count - 1{
+            let randomNumber = Int.random(in: 1...self.numbers.max()!)
+            self.setNewValueInRowWithValues(index: index, value: randomNumber)
         }
-       
-        
+    }
+    
+    private func setNewValueInRowWithValues(index: Int, value: Int){
         do{
             try data[index].view.pushValue(value: value)
         }catch let error{
