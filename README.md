@@ -1,9 +1,34 @@
 # GraphicMotionApplication
 simple application (with custom view) , that will draw graphics align to values from sensors
 
+Each of graphics implement protocol Graphic: 
 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/iOSDiaOne.jpg) 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/iOSDiaTwo.jpg)
+protocol Graphic{
+    func pushValue(value: Int) throws
+    func setupWithArray(values: [Int]) throws
+    func getUIView() -> UIView
+}
 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/smartOne.jpg) 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/smartTwo.jpg)
+Example of usage:
+
+1 setup init data - array of Int:
+
+do{
+   try graphic.setupWithArray(values: numbers)
+}catch let error{       
+   print("error while insert array: \(error)")
+}
+
+There are 2 things: 
+- max array count should be less than 50
+
+2 than we can push new value, which should be less than max value in data, or equel to max value
+
+do{
+   try graphic.pushValue(value: value)
+}catch let error{
+   print("error while push value: \(error)") 
+}
+
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/graph_one.jpg) 
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/graph_two.jpg)
