@@ -13,13 +13,13 @@ Example of usage:
 
 1 setup init data - array of Int:
 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/setup.jpg) 
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/setup.png) 
 
 - max array count should be less than 50
 
 2 than we can push new value, which should be less than max value in data, or equel to max value
 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/push.jpg) 
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/push.png) 
 
 ![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/graph_one.jpg) 
 ![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/graph_two.jpg)
