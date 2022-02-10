@@ -13,22 +13,13 @@ Example of usage:
 
 1 setup init data - array of Int:
 
-do{
-   try graphic.setupWithArray(values: numbers)
-}catch let error{       
-   print("error while insert array: \(error)")
-}
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/setup.jpg) 
 
-There are 2 things: 
 - max array count should be less than 50
 
 2 than we can push new value, which should be less than max value in data, or equel to max value
 
-do{
-   try graphic.pushValue(value: value)
-}catch let error{
-   print("error while push value: \(error)") 
-}
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/push.jpg) 
 
 ![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/graph_one.jpg) 
 ![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/graph_two.jpg)
