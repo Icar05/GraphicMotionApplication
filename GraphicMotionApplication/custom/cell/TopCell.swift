@@ -21,9 +21,9 @@ class TopCell: UITableViewCell{
     func setup(callback: @escaping TopCallback){
         self._callBack = callback
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tap(sender:)))
-        startBtn.isUserInteractionEnabled = true
-        startBtn.addGestureRecognizer(gesture)
-        
+        self.startBtn.isUserInteractionEnabled = true
+        self.startBtn.addGestureRecognizer(gesture)
+        self.selectionStyle = .none
     }
     
     @objc func tap(sender: UITapGestureRecognizer){
