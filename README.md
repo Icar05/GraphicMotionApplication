@@ -21,5 +21,5 @@ Example of usage:
 
 ![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/push.png) 
 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/graph_one.jpg) 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/graph_two.jpg)
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/Two.jpg) 
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/One.jpg)
