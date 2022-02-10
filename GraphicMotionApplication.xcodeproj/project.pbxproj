@@ -7,9 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A116BC8220FB8A800B01F0B /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A116BC7220FB8A800B01F0B /* DataProvider.swift */; };
 		1A8501C4221203D7005A781B /* UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8501C3221203D7005A781B /* UITest.swift */; };
-		1ABFCC5922123FC2009B4E8B /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ABFCC5822123FC2009B4E8B /* Provider.swift */; };
 		6DD0EAA2C0FF5716862FF7EF /* Pods_GraphicMotionApplication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B295C5615E1C1F1C3399913F /* Pods_GraphicMotionApplication.framework */; };
 		9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACC220D8BC700C00732 /* AppDelegate.swift */; };
 		9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACE220D8BC700C00732 /* ViewController.swift */; };
@@ -17,17 +15,17 @@
 		9BE52AD4220D8BC900C00732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD3220D8BC900C00732 /* Assets.xcassets */; };
 		9BE52AD7220D8BC900C00732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD5220D8BC900C00732 /* LaunchScreen.storyboard */; };
 		9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ADF220D90F200C00732 /* UIGraphicView.swift */; };
-		ED20058D27B161CF002A5DA1 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED20058C27B161CF002A5DA1 /* DetailViewController.swift */; };
+		ED36E4A627B51D480051343C /* TopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36E4A527B51D480051343C /* TopCell.swift */; };
 		ED59581F27B08E3500B8176F /* CrossCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED59581E27B08E3500B8176F /* CrossCalculation.swift */; };
+		ED881E9B27B4B34D00B7253B /* ShowGraphicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED881E9A27B4B34D00B7253B /* ShowGraphicCell.xib */; };
+		ED881E9E27B4B36900B7253B /* ShowGraphicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED881E9D27B4B36900B7253B /* ShowGraphicCell.swift */; };
 		EDE4C8A627AD778F0088A5BF /* UISmartGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */; };
 		EDE4C8A827AD8C870088A5BF /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A727AD8C870088A5BF /* Queue.swift */; };
 		EDE4C8AA27ADB45A0088A5BF /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A116BC7220FB8A800B01F0B /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		1A8501C3221203D7005A781B /* UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITest.swift; sourceTree = "<group>"; };
-		1ABFCC5822123FC2009B4E8B /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		6310553E85847243228C565A /* Pods-GraphicMotionApplication.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphicMotionApplication.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphicMotionApplication/Pods-GraphicMotionApplication.debug.xcconfig"; sourceTree = "<group>"; };
 		9BE52AC9220D8BC700C00732 /* GraphicMotionApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphicMotionApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE52ACC220D8BC700C00732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,8 +37,10 @@
 		9BE52ADF220D90F200C00732 /* UIGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGraphicView.swift; sourceTree = "<group>"; };
 		AEF288F3C335DCA58142E4DC /* Pods-GraphicMotionApplication.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphicMotionApplication.release.xcconfig"; path = "Pods/Target Support Files/Pods-GraphicMotionApplication/Pods-GraphicMotionApplication.release.xcconfig"; sourceTree = "<group>"; };
 		B295C5615E1C1F1C3399913F /* Pods_GraphicMotionApplication.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphicMotionApplication.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		ED20058C27B161CF002A5DA1 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		ED36E4A527B51D480051343C /* TopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCell.swift; sourceTree = "<group>"; };
 		ED59581E27B08E3500B8176F /* CrossCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossCalculation.swift; sourceTree = "<group>"; };
+		ED881E9A27B4B34D00B7253B /* ShowGraphicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowGraphicCell.xib; sourceTree = "<group>"; };
+		ED881E9D27B4B36900B7253B /* ShowGraphicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGraphicCell.swift; sourceTree = "<group>"; };
 		EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISmartGraphicView.swift; sourceTree = "<group>"; };
 		EDE4C8A727AD8C870088A5BF /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
@@ -58,15 +58,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1ABFCC5522123D2E009B4E8B /* dataProvider */ = {
-			isa = PBXGroup;
-			children = (
-				1A116BC7220FB8A800B01F0B /* DataProvider.swift */,
-				1ABFCC5822123FC2009B4E8B /* Provider.swift */,
-			);
-			path = dataProvider;
-			sourceTree = "<group>";
-		};
 		9BE52AC0220D8BC700C00732 = {
 			isa = PBXGroup;
 			children = (
@@ -88,7 +79,6 @@
 		9BE52ACB220D8BC700C00732 /* GraphicMotionApplication */ = {
 			isa = PBXGroup;
 			children = (
-				1ABFCC5522123D2E009B4E8B /* dataProvider */,
 				9BE52ADE220D909500C00732 /* custom */,
 				9BE52ACC220D8BC700C00732 /* AppDelegate.swift */,
 				9BE52ACE220D8BC700C00732 /* ViewController.swift */,
@@ -98,7 +88,6 @@
 				9BE52AD8220D8BC900C00732 /* Info.plist */,
 				EDE4C8A727AD8C870088A5BF /* Queue.swift */,
 				EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */,
-				ED20058C27B161CF002A5DA1 /* DetailViewController.swift */,
 			);
 			path = GraphicMotionApplication;
 			sourceTree = "<group>";
@@ -106,6 +95,7 @@
 		9BE52ADE220D909500C00732 /* custom */ = {
 			isa = PBXGroup;
 			children = (
+				ED881E9827B4B32500B7253B /* cell */,
 				9BE52ADF220D90F200C00732 /* UIGraphicView.swift */,
 				1A8501C3221203D7005A781B /* UITest.swift */,
 				EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */,
@@ -120,6 +110,16 @@
 				B295C5615E1C1F1C3399913F /* Pods_GraphicMotionApplication.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED881E9827B4B32500B7253B /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				ED881E9A27B4B34D00B7253B /* ShowGraphicCell.xib */,
+				ED881E9D27B4B36900B7253B /* ShowGraphicCell.swift */,
+				ED36E4A527B51D480051343C /* TopCell.swift */,
+			);
+			path = cell;
 			sourceTree = "<group>";
 		};
 		F5B258179C0BED3DE02A9CEB /* Pods */ = {
@@ -194,6 +194,7 @@
 				9BE52AD7220D8BC900C00732 /* LaunchScreen.storyboard in Resources */,
 				9BE52AD4220D8BC900C00732 /* Assets.xcassets in Resources */,
 				9BE52AD2220D8BC700C00732 /* Main.storyboard in Resources */,
+				ED881E9B27B4B34D00B7253B /* ShowGraphicCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,16 +230,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ED20058D27B161CF002A5DA1 /* DetailViewController.swift in Sources */,
 				EDE4C8AA27ADB45A0088A5BF /* RuntimeError.swift in Sources */,
 				9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */,
 				ED59581F27B08E3500B8176F /* CrossCalculation.swift in Sources */,
 				1A8501C4221203D7005A781B /* UITest.swift in Sources */,
-				1ABFCC5922123FC2009B4E8B /* Provider.swift in Sources */,
+				ED36E4A627B51D480051343C /* TopCell.swift in Sources */,
 				EDE4C8A827AD8C870088A5BF /* Queue.swift in Sources */,
+				ED881E9E27B4B36900B7253B /* ShowGraphicCell.swift in Sources */,
 				EDE4C8A627AD778F0088A5BF /* UISmartGraphicView.swift in Sources */,
 				9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */,
-				1A116BC8220FB8A800B01F0B /* DataProvider.swift in Sources */,
 				9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

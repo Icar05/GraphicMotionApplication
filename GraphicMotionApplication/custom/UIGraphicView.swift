@@ -8,36 +8,46 @@
 
 import UIKit
 
+protocol Graphic{
+    func pushValue(value: Int) throws
+    func setupWithArray(values: [Int]) throws
+    func getUIView() -> UIView
+}
+
 @IBDesignable
-class UIGraphicView: UIView {
+class UIGraphicView: UIView, Graphic {
+   
     
     
+   
     
     @IBInspectable var bC: UIColor = UIColor.black
     
     @IBInspectable var guideColor: UIColor = UIColor.gray
     
-    @IBInspectable var graphicColor: UIColor = UIColor.white
+    @IBInspectable var graphicColor: UIColor = UIColor.orange
     
-    let sizeOfView: CGFloat = 200
+    private let defaultDataSourceCount = 50
     
-    let guidesCount = 9
+    private let sizeOfView: CGFloat = 150
     
-    let horizontalOffset = 20
+    private let guidesCount = 9
     
-    let maxDataSourceCount = 50
+    private let horizontalOffset = 20
     
-    var startPointX: CGFloat = 0
+    private let maxDataSourceCount = 50
     
-    var startPointY: CGFloat = 0
+    private var startPointX: CGFloat = 0
     
-    var stepInPixel: CGFloat = 0
+    private var startPointY: CGFloat = 0
     
-    var datasource: Queue<Int> = Queue()
+    private var stepInPixel: CGFloat = 0
     
-    var graphicPath = UIBezierPath()
+    private var datasource: Queue<Int> = Queue()
     
-    var guidePath = UIBezierPath()
+    private var graphicPath = UIBezierPath()
+    
+    private var guidePath = UIBezierPath()
     
     
     
@@ -74,7 +84,10 @@ class UIGraphicView: UIView {
         self.stepInPixel  =  sizeOfView / CGFloat(datasource.count())
     }
     
-    
+    override func layoutSubviews() {
+            super.layoutSubviews()
+            self.frame = bounds
+        }
     
     override func draw(_ rect: CGRect) {
         drawGuideLines()
@@ -107,11 +120,9 @@ class UIGraphicView: UIView {
             
         startPointX = 0
         startPointY = calculateStepHeight(value: datasource.getElement(index: 0))
+        graphicColor.setStroke()
         
         for i: Int in datasource.getElements() {
-            
-            graphicPath = UIBezierPath()
-            getColor(yValue: startPointY).setStroke()
             
             graphicPath.move(to: CGPoint(x:startPointX, y:startPointY))
             
@@ -126,28 +137,12 @@ class UIGraphicView: UIView {
         graphicPath.close()
     }
     
-    
-    private func getColor(yValue: CGFloat) -> UIColor{
-        let center = sizeOfView / 2
-        
-        if(yValue > center + CGFloat(horizontalOffset)){
-            return UIColor.red
-        }else if (yValue < center - CGFloat(horizontalOffset)){
-            return UIColor.green
-        }else{
-            return UIColor.orange
-        }
-    }
-    
     private func calculateStepHeight(value: Int) -> CGFloat{
         return CGFloat(value) * stepInPixel
     }
     
     
     private func createEmptyValues(count: Int) -> [Int]{
-//        let middleValue = count / 2
-//        return [Int](repeating: middleValue, count: count)
-        
         return [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
     }
     
@@ -158,5 +153,20 @@ class UIGraphicView: UIView {
         self.setNeedsDisplay()
     }
     
+    
+    func setupWithArray(values: [Int]) throws {
+        if(values.count > defaultDataSourceCount){
+            throw RuntimeError("too many start elements")
+        }
+        
+        self.datasource.setup(values)
+        self.layer.sublayers = nil
+        self.graphicPath = UIBezierPath()
+        self.setNeedsDisplay()
+    }
+    
+    func getUIView() -> UIView {
+        return self
+    }
     
 }

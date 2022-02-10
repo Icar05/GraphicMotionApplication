@@ -12,7 +12,7 @@ import UIKit
 
 
 @IBDesignable
-class UISmartGraphicView: UIView {
+class UISmartGraphicView: UIView, Graphic {
     
     
     
@@ -24,27 +24,34 @@ class UISmartGraphicView: UIView {
     
     @IBInspectable var negativeColor: UIColor = UIColor.red
     
-    let sizeOfView: CGFloat = 200
+    @IBInspectable var guidesCount: Int {
+        get { return _guidesCount }
+        set { if(newValue > 3 && newValue < 10){
+            _guidesCount = newValue
+        } }
+    }
     
-    let guidesCount = 9
+    private let sizeOfView: CGFloat = 150
     
-    let defaultDataSourceCount = 50
+    private var _guidesCount = 7
     
-    var startPointX: CGFloat = 0
+    private let defaultDataSourceCount = 50
     
-    var startPointY: CGFloat = 0
+    private var startPointX: CGFloat = 0
     
-    var verticalOffset: CGFloat = 0
+    private var startPointY: CGFloat = 0
     
-    var horizontalOffset: CGFloat = 0
+    private var verticalOffset: CGFloat = 0
     
-    var maxDataSourceValue: CGFloat = 0
+    private var horizontalOffset: CGFloat = 0
     
-    var datasource: Queue<Int> = Queue()
+    private var maxDataSourceValue: CGFloat = 0
     
-    var graphicPath = UIBezierPath()
+    private var datasource: Queue<Int> = Queue()
     
-    var guidePath = UIBezierPath()
+    private var graphicPath = UIBezierPath()
+    
+    private var guidePath = UIBezierPath()
     
     
     
@@ -68,11 +75,9 @@ class UISmartGraphicView: UIView {
         setup()
     }
     
-    //to avoid size bigger than sizeOfView
-    override var bounds: CGRect {
-        didSet {
-            self.frame = CGRect(x: 0, y: 0, width: sizeOfView, height: sizeOfView)
-        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.frame = bounds
     }
     
     
@@ -91,28 +96,29 @@ class UISmartGraphicView: UIView {
     }
     
     override func draw(_ rect: CGRect) {
-        drawGuideLines()
-        drawGraphic()
+        self.drawGuides(count: guidesCount, color: guideColor)
+        self.drawGraphic()
     }
     
     
-    private func drawGuideLines(){
+    private func drawGuides(count: Int, color: UIColor){
+        let offset = CGFloat(sizeOfView) / CGFloat(count)
         
-        guideColor.setStroke()
-        
-        let step = sizeOfView / CGFloat(guidesCount)
-        var offset = step
-        
-        
-        for _ in 1 ..< guidesCount{
-            guidePath.move(to: CGPoint(x:0,  y:offset))
-            guidePath.addLine(to: CGPoint(x: bounds.width, y:offset))
+        for index in 1 ..< count{
+            let startY: CGFloat = CGFloat(index) * offset
+            self.drawLine(
+                start: CGPoint(x: 0, y: startY),
+                end: CGPoint(x: sizeOfView, y: startY),
+                color: color
+            )
             
-            offset  = offset + step
+            let startX: CGFloat = CGFloat(index) * offset
+            self.drawLine(
+                start: CGPoint(x: startX, y: 0),
+                end: CGPoint(x: startX, y: sizeOfView),
+                color: color
+            )
         }
-        
-        guidePath.stroke()
-        guidePath.close()
     }
     
     private func drawGraphic(){
@@ -158,7 +164,7 @@ class UISmartGraphicView: UIView {
         self.drawLine(start: CGPoint(x: start.x, y: start.y),
                       end: CGPoint(x: start.x, y: sizeOfView / 2),
                       color: getColorForMultyLine(startY: start.y, endY:sizeOfView / 2))
-
+        
         
         self.drawLine(start: CGPoint(x: end.x, y: sizeOfView / 2),
                       end: CGPoint(x: end.x, y: end.y),
@@ -181,7 +187,7 @@ class UISmartGraphicView: UIView {
     private func crossesTheCentralLine(startY: CGFloat, newY: CGFloat) -> Bool{
         let centerY = CGFloat(sizeOfView / 2)
         return between(start: startY, end: newY, target: centerY) ||
-               between(start: newY, end: startY, target: centerY)
+        between(start: newY, end: startY, target: centerY)
     }
     
     private func between(start: CGFloat, end: CGFloat, target: CGFloat) -> Bool{
@@ -224,7 +230,7 @@ class UISmartGraphicView: UIView {
         self.graphicPath = UIBezierPath()
         self.setNeedsDisplay()
         
-        print(datasource)
+//        print(datasource)
     }
     
     
@@ -241,4 +247,8 @@ class UISmartGraphicView: UIView {
         self.setNeedsDisplay()
     }
     
+    
+    func getUIView() -> UIView {
+        return self
+    }
 }

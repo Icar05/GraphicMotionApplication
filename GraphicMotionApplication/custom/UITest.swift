@@ -10,14 +10,14 @@ import UIKit
 
 
 @IBDesignable
-class UITest: UIView {
+class UITest: UIView, Graphic {
     
     
     
     @IBInspectable var bC: UIColor = UIColor.black
     
     @IBInspectable var guideColor: UIColor = UIColor.gray
-        
+    
     @IBInspectable var positiveColor: UIColor = UIColor.green
     
     @IBInspectable var negativeColor: UIColor = UIColor.red
@@ -32,11 +32,11 @@ class UITest: UIView {
             _guidesCount = newValue
         } }
     }
-
+    
     private var graphicPath: UIBezierPath = UIBezierPath()
     
-    private let sizeOfView: CGFloat = 200
-        
+    private let sizeOfView: CGFloat = 150
+    
     private let calc = CrossCalculator()
     
     private let defaultDataSourceCount = 50
@@ -44,7 +44,7 @@ class UITest: UIView {
     private let markSize = 2
     
     private var _guidesCount = 4
-        
+    
     private var datasource: Queue<Int> = Queue()
     
     private var maxDataSourceValue: CGFloat = 0
@@ -70,10 +70,9 @@ class UITest: UIView {
     }
     
     
-    override var bounds: CGRect {
-        didSet {
-            self.frame = CGRect(x: 0, y: 0, width: sizeOfView, height: sizeOfView)
-        }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.frame = bounds
     }
     
     
@@ -275,7 +274,7 @@ class UITest: UIView {
         self.graphicPath = UIBezierPath()
         self.setNeedsDisplay()
         
-        print(datasource)
+//        print(datasource)
     }
     
     
@@ -290,6 +289,10 @@ class UITest: UIView {
         self.layer.sublayers = nil
         self.graphicPath = UIBezierPath()
         self.setNeedsDisplay()
+    }
+    
+    func getUIView() -> UIView {
+        return self
     }
     
 }

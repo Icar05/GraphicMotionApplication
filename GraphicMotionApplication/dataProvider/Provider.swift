@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol Provider : class{
+protocol Provider : AnyObject{
     func startUpdates()
     func stopUpdates()
     func getUpdates() -> Observable<Int>
