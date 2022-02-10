@@ -225,12 +225,14 @@ class UISmartGraphicView: UIView, Graphic {
             throw RuntimeError("wrong value: \(value) -> max: \(maxDataSourceValue)")
         }
         
+        if(value < 1){
+            throw RuntimeError("too small value")
+        }
+        
         self.datasource.push(value)
         self.layer.sublayers = nil
         self.graphicPath = UIBezierPath()
         self.setNeedsDisplay()
-        
-//        print(datasource)
     }
     
     

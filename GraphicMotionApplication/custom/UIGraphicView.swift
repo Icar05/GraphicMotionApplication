@@ -146,7 +146,13 @@ class UIGraphicView: UIView, Graphic {
         return [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
     }
     
-    func pushValue(value: Int){
+    func pushValue(value: Int) throws {
+        
+        
+        if(value < 1){
+            throw RuntimeError("too small value")
+        }
+        
         self.datasource.push(value)
         self.layer.sublayers = nil
         self.graphicPath = UIBezierPath()
