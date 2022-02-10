@@ -25,7 +25,7 @@ class UIGraphicView: UIView, Graphic {
     
     @IBInspectable var guideColor: UIColor = UIColor.gray
     
-    @IBInspectable var graphicColor: UIColor = UIColor.orange
+    @IBInspectable var graphicColor: UIColor = UIColor.cyan
     
     private let defaultDataSourceCount = 50
     

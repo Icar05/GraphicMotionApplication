@@ -18,9 +18,9 @@ class UITest: UIView, Graphic {
     
     @IBInspectable var guideColor: UIColor = UIColor.gray
     
-    @IBInspectable var positiveColor: UIColor = UIColor.green
+    @IBInspectable var positiveColor: UIColor = UIColor.red
     
-    @IBInspectable var negativeColor: UIColor = UIColor.red
+    @IBInspectable var negativeColor: UIColor = UIColor.orange
     
     @IBInspectable var debugHorizontalGuideColor: UIColor = UIColor.yellow
     

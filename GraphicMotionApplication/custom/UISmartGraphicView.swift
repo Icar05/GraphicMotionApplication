@@ -22,7 +22,7 @@ class UISmartGraphicView: UIView, Graphic {
     
     @IBInspectable var positiveColor: UIColor = UIColor.green
     
-    @IBInspectable var negativeColor: UIColor = UIColor.red
+    @IBInspectable var negativeColor: UIColor = UIColor.yellow
     
     @IBInspectable var guidesCount: Int {
         get { return _guidesCount }
