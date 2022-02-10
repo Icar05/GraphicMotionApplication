@@ -115,7 +115,7 @@ extension ViewController: UITableViewDataSource{
         do{
             try data[index].view.pushValue(value: value)
         }catch let error{
-            print("error while insert array: \(error)")
+            print("error while push value: \(error)")
         }
     }
     
