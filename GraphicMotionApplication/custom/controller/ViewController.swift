@@ -72,7 +72,7 @@ extension ViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         
         
-        if(indexPath.row == 0){
+        if(indexPath.row == data.count){
             let indifier = String(describing: TopCell.self)
             let cell = tableView.dequeueReusableCell(withIdentifier: indifier, for: indexPath) as! TopCell
                 cell.setup{value in value ? self.startTimer() : self.stopTimer() }
@@ -84,7 +84,7 @@ extension ViewController: UITableViewDataSource{
     
         let indifier = String(describing: ShowGraphicCell.self)
         let cell = tableView.dequeueReusableCell(withIdentifier: indifier, for: indexPath) as! ShowGraphicCell
-            cell.setup(data: data[indexPath.row - 1] )
+            cell.setup(data: data[indexPath.row] )
         
         return cell
         
