@@ -19,6 +19,7 @@
 		ED54C21127B57CFC002C4F1F /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED54C21027B57CFC002C4F1F /* AudioHelper.swift */; };
 		ED54C21327B57E76002C4F1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED54C21227B57E76002C4F1F /* Constants.swift */; };
 		ED59581F27B08E3500B8176F /* CrossCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED59581E27B08E3500B8176F /* CrossCalculation.swift */; };
+		ED70D197286FB54F00B6255C /* UIEqualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED70D196286FB54F00B6255C /* UIEqualizer.swift */; };
 		ED881E9B27B4B34D00B7253B /* ShowGraphicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED881E9A27B4B34D00B7253B /* ShowGraphicCell.xib */; };
 		ED881E9E27B4B36900B7253B /* ShowGraphicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED881E9D27B4B36900B7253B /* ShowGraphicCell.swift */; };
 		EDE4C8A627AD778F0088A5BF /* UISmartGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */; };
@@ -41,6 +42,7 @@
 		ED54C21027B57CFC002C4F1F /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
 		ED54C21227B57E76002C4F1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		ED59581E27B08E3500B8176F /* CrossCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossCalculation.swift; sourceTree = "<group>"; };
+		ED70D196286FB54F00B6255C /* UIEqualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEqualizer.swift; sourceTree = "<group>"; };
 		ED881E9A27B4B34D00B7253B /* ShowGraphicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowGraphicCell.xib; sourceTree = "<group>"; };
 		ED881E9D27B4B36900B7253B /* ShowGraphicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGraphicCell.swift; sourceTree = "<group>"; };
 		EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISmartGraphicView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */,
 				1A8501C3221203D7005A781B /* UITest.swift */,
 				9BE52ADF220D90F200C00732 /* UIGraphicView.swift */,
+				ED70D196286FB54F00B6255C /* UIEqualizer.swift */,
 			);
 			path = graphic;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				EDE4C8AA27ADB45A0088A5BF /* RuntimeError.swift in Sources */,
 				9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */,
 				ED59581F27B08E3500B8176F /* CrossCalculation.swift in Sources */,
+				ED70D197286FB54F00B6255C /* UIEqualizer.swift in Sources */,
 				1A8501C4221203D7005A781B /* UITest.swift in Sources */,
 				ED36E4A627B51D480051343C /* TopCell.swift in Sources */,
 				EDE4C8A827AD8C870088A5BF /* Queue.swift in Sources */,

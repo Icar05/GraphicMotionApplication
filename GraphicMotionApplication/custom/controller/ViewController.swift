@@ -51,7 +51,7 @@ class ViewController: UIViewController {
     
     
     func startTimer(){
-        self.timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true) { timer in
+        self.timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { timer in
             simultiniouslyUpdate ? self.updateAll() : self.updateSelected()
         }
     }
