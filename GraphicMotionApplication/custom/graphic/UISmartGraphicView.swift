@@ -221,7 +221,7 @@ class UISmartGraphicView: UIView, Graphic {
         self.calculateDataSourceValues()
     }
     
-    func pushValue(value: Int) throws {
+    func pushValue(index: Int, value: Int) throws {
         
         if(CGFloat(value) > maxDataSourceValue){
             throw RuntimeError("wrong value: \(value) -> max: \(maxDataSourceValue)")
@@ -239,7 +239,7 @@ class UISmartGraphicView: UIView, Graphic {
     }
     
     
-    func setupWithArray(values: [Int]) throws {
+    func setupWithArray(index: Int, values: [Int]) throws {
         
         if(values.count > defaultDataSourceCount){
             throw RuntimeError("too many start elements")

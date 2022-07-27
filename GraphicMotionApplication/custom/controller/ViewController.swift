@@ -16,6 +16,7 @@ struct DataCell{
 
 class ViewController: UIViewController {
     
+    private let colors: [UIColor] = [UIColor.red, UIColor.green]
     
     private let data = [
         DataCell(name: "UIGraphic",
@@ -26,7 +27,10 @@ class ViewController: UIViewController {
                  view: UISmartGraphicView()),
         DataCell(name: "UITest",
                  desc: "Last realization with calculation and nice design",
-                 view: UITest())
+                 view: UITest()),
+        DataCell(name: "UITestMultiple",
+                 desc: "Attempt to draw multy graphics",
+                 view: UITestMultiple())
     ]
     
     private var timer: Timer?
@@ -113,7 +117,23 @@ extension ViewController: UITableViewDataSource{
     
     private func setNewValueInRowWithValues(index: Int, value: Int){
         do{
-            try data[index].view.pushValue(value: value)
+            let view = data[index].view
+            
+            
+            if(view is UITestMultiple){
+                
+                let mView = view as? UITestMultiple
+                
+                for i in 0...1{
+                    try mView?.pushValue(index: i, value: Int.random(in: 1...self.numbers.max()!))
+                }
+                
+                mView?.update()
+                
+            }else{
+                try data[index].view.pushValue(index: 0, value: value)
+            }
+            
         }catch let error{
             print("error while push value: \(error)")
         }
@@ -121,10 +141,37 @@ extension ViewController: UITableViewDataSource{
     
     private func setupGraphicInRowWithValues(index: Int){
         do{
-            try data[index].view.setupWithArray(values: numbers)
+            let view = data[index].view
+            
+            
+            if(view is UITestMultiple){
+                
+                for i in 0...1{
+                    
+                    var model = UITestMultipleModel(positivewColor: colors[i], negativeColor: colors[i])
+                        model.datasource.setup(prepareNumbers())
+                    try (view as? UITestMultiple)?.setupWithArray(index: i, model: &model)
+                }
+                
+            }else{
+                try view.setupWithArray(index: 0, values: numbers)
+            }
+            
+            
         }catch let error{
             print("error while insert array: \(error)")
         }
+    }
+    
+    private func prepareNumbers() -> [Int]{
+        
+        var res: [Int] = []
+        
+        for _ in 0...numbers.count - 1{
+            res.append(Int.random(in: 1..<10))
+        }
+        
+        return res
     }
     
 }

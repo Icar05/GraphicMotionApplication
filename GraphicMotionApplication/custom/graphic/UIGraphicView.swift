@@ -9,8 +9,8 @@
 import UIKit
 
 protocol Graphic{
-    func pushValue(value: Int) throws
-    func setupWithArray(values: [Int]) throws
+    func pushValue(index: Int, value: Int) throws
+    func setupWithArray(index: Int, values: [Int]) throws
     func getUIView() -> UIView
 }
 
@@ -148,7 +148,7 @@ class UIGraphicView: UIView, Graphic {
         return [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
     }
     
-    func pushValue(value: Int) throws {
+    func pushValue(index: Int, value: Int) throws {
         
         
         if(value < 1){
@@ -163,7 +163,7 @@ class UIGraphicView: UIView, Graphic {
     }
     
     
-    func setupWithArray(values: [Int]) throws {
+    func setupWithArray(index: Int, values: [Int]) throws {
         if(values.count > defaultDataSourceCount){
             throw RuntimeError("too many start elements")
         }

@@ -1,26 +1,36 @@
 //
-//  UITest.swift
+//  UITestMultiple.swift
 //  GraphicMotionApplication
 //
-//  Created by Ipinguin_linuxoid on 2019/02/11.
-//  Copyright © 2019 ipinguin_linuxoid. All rights reserved.
+//  Created by ICoon on 28.07.2022.
+//  Copyright © 2022 ipinguin_linuxoid. All rights reserved.
 //
 
 import UIKit
 
+struct UITestMultipleModel{
+    let positivewColor: UIColor
+    let negativeColor: UIColor
+    var datasource: Queue<Int> = Queue()
+}
+extension UITestMultipleModel {
+    mutating func getMaxValue() -> CGFloat{
+        return  CGFloat(datasource.getElements().max()!)
+    }
+    
+    mutating func getValues() -> [Int]{
+        return  datasource.getElements()
+    }
+}
 
 @IBDesignable
-class UITest: UIView, Graphic {
+class UITestMultiple: UIView, Graphic {
     
     
     
     @IBInspectable var bC: UIColor = UIColor.black
     
     @IBInspectable var guideColor: UIColor = UIColor.gray
-    
-    @IBInspectable var positiveColor: UIColor = UIColor.red
-    
-    @IBInspectable var negativeColor: UIColor = UIColor.orange
     
     @IBInspectable var debugHorizontalGuideColor: UIColor = UIColor.yellow
     
@@ -47,9 +57,7 @@ class UITest: UIView, Graphic {
     
     private var _guidesCount = 4
     
-    private var datasource: Queue<Int> = Queue()
-    
-    private var maxDataSourceValue: CGFloat = 0
+    private var datasource: [UITestMultipleModel] = []
     
     private let sound: Int = SoundsForTest.middleTouch
     
@@ -91,23 +99,32 @@ class UITest: UIView, Graphic {
     
     private func setupDefaultData(){
         let values = [1,4,2,4,3,4,4,6,5,7,6,8,7,8,8,7,9,10]
-        self.datasource.setup(values)
-        self.maxDataSourceValue = CGFloat(self.datasource.getElements().max()!)
+        var datasource = Queue<Int>()
+            datasource.setup(values)
     }
     
     override func draw(_ rect: CGRect) {
         self.drawGuides(count: guidesCount, color: guideColor)
-        self.drawGraphic(array: datasource.getElements())
+        
+        for i in 0...datasource.count - 1{
+            self.drawGraphic(model: &datasource[i])
+        }
         
         if(needDebug){
             self.drawCenterLine(color: debugHorizontalGuideColor)
-            self.drawMarks(array: datasource.getElements())
+            
+            
+            for i in 0...datasource.count - 1{
+                self.drawMarks(array:  datasource[i].getValues())
+            }
         }
         
     }
     
     
-    private func drawGraphic(array: [Int]){
+    private func drawGraphic(model: inout UITestMultipleModel){
+        
+        let array: [Int] = model.datasource.getElements()
         
         let horizontalOffset = CGFloat(sizeOfView) / CGFloat(array.count)
         let verticalOffset = CGFloat(sizeOfView) / CGFloat(array.max()!)
@@ -130,7 +147,9 @@ class UITest: UIView, Graphic {
             self.drawGraphicLine(
                 start: CGPoint(x: startX , y:startY ),
                 end: CGPoint(x: endX, y:endY),
-                index: index
+                index: index,
+                negColor: model.negativeColor,
+                posColor: model.positivewColor
             )
             
             startX = endX
@@ -138,7 +157,7 @@ class UITest: UIView, Graphic {
         }
     }
     
-    private func drawGraphicLine(start: CGPoint, end: CGPoint, index: Int){
+    private func drawGraphicLine(start: CGPoint, end: CGPoint, index: Int, negColor: UIColor, posColor: UIColor){
         
         let center = sizeOfView / 2
         let centerPointStart = CGPoint(x: 0, y: center)
@@ -154,11 +173,11 @@ class UITest: UIView, Graphic {
             
             self.drawLine(startCoords: CGPoint(x: start.x, y: start.y),
                           endCoords: CGPoint(x: crossPoint.x, y: crossPoint.y),
-                          color: getColorForMultyLine(start: start.y, end: crossPoint.y))
+                          color: getColorForMultyLine(start: start.y, end: crossPoint.y, negColor: negColor, posColor: posColor))
             
             self.drawLine(startCoords: CGPoint(x: crossPoint.x, y: crossPoint.y),
                           endCoords: CGPoint(x: end.x, y: end.y),
-                          color: getColorForMultyLine(start: crossPoint.y, end: end.y))
+                          color: getColorForMultyLine(start: crossPoint.y, end: end.y, negColor: negColor, posColor: posColor))
             
             return
         }
@@ -167,7 +186,7 @@ class UITest: UIView, Graphic {
         self.drawLine(
             startCoords: CGPoint(x: start.x, y: start.y),
             endCoords: CGPoint(x: end.x, y: end.y),
-            color: getColorForLinestartY(startY: start.y, endY: end.y))
+            color: getColorForLinestartY(startY: start.y, endY: end.y, negColor: negColor, posColor: posColor))
     }
     
     
@@ -245,15 +264,15 @@ class UITest: UIView, Graphic {
     }
     
     
-    private func getColorForMultyLine(start: CGFloat, end: CGFloat) -> UIColor{
+    private func getColorForMultyLine(start: CGFloat, end: CGFloat, negColor: UIColor, posColor: UIColor) -> UIColor{
         let centerY = CGFloat(sizeOfView / 2)
-        return (start > centerY || end > centerY) ? negativeColor : positiveColor
+        return (start > centerY || end > centerY) ? negColor : posColor
     }
     
-    private func getColorForLinestartY(startY: CGFloat, endY: CGFloat) -> UIColor{
+    private func getColorForLinestartY(startY: CGFloat, endY: CGFloat, negColor: UIColor, posColor: UIColor) -> UIColor{
         let centerY = CGFloat(sizeOfView / 2)
         let middleAge = (startY + endY) / 2
-        return middleAge > centerY ? negativeColor : positiveColor
+        return middleAge > centerY ? negColor : posColor
     }
     
     private func crossesTheCentralLine(startY: CGFloat, newY: CGFloat) -> Bool{
@@ -269,15 +288,18 @@ class UITest: UIView, Graphic {
     
     func pushValue(index: Int, value: Int) throws {
         
-        if(CGFloat(value) > maxDataSourceValue){
-            throw RuntimeError("wrong value: \(value) -> max: \(maxDataSourceValue)")
-        }
+//        if(CGFloat(value) > datasource[index].getMaxValue()){
+//            throw RuntimeError("wrong value: \(value) -> max: \(datasource[index].getMaxValue())")
+//        }
         
         if(value < 1){
             throw RuntimeError("too small value")
         }
         
-        self.datasource.push(value)
+        self.datasource[index].datasource.push(value)
+    }
+    
+    func update(){
         self.layer.sublayers = nil
         self.graphicPath = UIBezierPath()
         self.setNeedsDisplay()
@@ -285,14 +307,27 @@ class UITest: UIView, Graphic {
     }
     
     
+    func setupWithArray(index: Int, model: inout UITestMultipleModel) throws{
+        
+        if(model.datasource.getElements().count > defaultDataSourceCount){
+            throw RuntimeError("too many start elements")
+        }
+        
+        self.datasource.append(model)
+        self.layer.sublayers = nil
+        self.graphicPath = UIBezierPath()
+        self.setNeedsDisplay()
+    }
+    
     func setupWithArray(index: Int, values: [Int]) throws {
         
         if(values.count > defaultDataSourceCount){
             throw RuntimeError("too many start elements")
         }
         
-        self.datasource.setup(values)
-        self.maxDataSourceValue = CGFloat(self.datasource.getElements().max()!)
+        self.datasource[index] = UITestMultipleModel(positivewColor: UIColor.red, negativeColor: UIColor.orange)
+
+        self.datasource[index].datasource.setup(values)
         self.layer.sublayers = nil
         self.graphicPath = UIBezierPath()
         self.setNeedsDisplay()

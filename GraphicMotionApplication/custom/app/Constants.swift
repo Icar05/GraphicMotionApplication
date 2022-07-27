@@ -9,6 +9,6 @@
 
 let playSound = false
 
-let simultiniouslyUpdate = false
+let simultiniouslyUpdate = true
 
 let interval =  0.07
