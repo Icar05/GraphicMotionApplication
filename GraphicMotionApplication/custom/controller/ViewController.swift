@@ -7,16 +7,19 @@
 //
 
 import UIKit
+import GraphicLB
 
 struct DataCell{
     var name: String
     var desc: String
-    var view: Graphic
+    var view: UIGraphic
 }
 
 class ViewController: UIViewController {
     
     private let colors: [UIColor] = [UIColor.red, UIColor.green]
+    
+    private let audioTool = AudioHelper()
     
     private let data = [
         DataCell(name: "UIGraphic",
@@ -27,7 +30,7 @@ class ViewController: UIViewController {
                  view: UISmartGraphicView()),
         DataCell(name: "UITest",
                  desc: "Last realization with calculation and nice design",
-                 view: UITest()),
+                 view: UITestGraphic()),
         DataCell(name: "UITestMultiple",
                  desc: "Attempt to draw multy graphics",
                  view: UITestMultiple())
@@ -104,7 +107,7 @@ extension ViewController: UITableViewDataSource{
     
     private func updateSelected(){
         let randomNumber = Int.random(in: 1...self.numbers.max()!)
-        let randomIndex = Int.random(in: 0...2)
+        let randomIndex = Int.random(in: 0...self.data.count - 1)
         setNewValueInRowWithValues(index: randomIndex, value: randomNumber)
     }
     
@@ -141,8 +144,11 @@ extension ViewController: UITableViewDataSource{
     
     private func setupGraphicInRowWithValues(index: Int){
         do{
-            let view = data[index].view
-            
+            var view = data[index].view
+            let sound = getSoundForView(view: view)
+                view.onValueChanged = { [weak self] in
+                    self?.audioTool.playAudio(sound: sound)
+                }
             
             if(view is UITestMultiple){
                 
@@ -161,6 +167,25 @@ extension ViewController: UITableViewDataSource{
         }catch let error{
             print("error while insert array: \(error)")
         }
+    }
+    
+    private func getSoundForView(view: UIGraphic) -> Int{
+        
+        let sound: Int
+        
+        if(view is UIGraphicView){
+            sound = SoundsForTest.nice
+        } else if(view is UISmartGraphicView){
+            sound = SoundsForTest.silentTouch
+        } else if(view is UITestGraphic){
+            sound = SoundsForTest.middleTouch
+        } else if(view is UITestMultiple){
+            sound = SoundsForTest.middleTouch
+        } else{
+            sound = SoundsForTest.nice
+        }
+        
+        return sound
     }
     
     private func prepareNumbers() -> [Int]{

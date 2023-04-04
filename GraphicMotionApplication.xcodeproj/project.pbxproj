@@ -3,33 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A8501C4221203D7005A781B /* UITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8501C3221203D7005A781B /* UITest.swift */; };
+		7ACB754C29DCAA61003ED4A0 /* GraphicLB in Frameworks */ = {isa = PBXBuildFile; productRef = 7ACB754B29DCAA61003ED4A0 /* GraphicLB */; };
 		9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACC220D8BC700C00732 /* AppDelegate.swift */; };
 		9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACE220D8BC700C00732 /* ViewController.swift */; };
 		9BE52AD2220D8BC700C00732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD0220D8BC700C00732 /* Main.storyboard */; };
 		9BE52AD4220D8BC900C00732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD3220D8BC900C00732 /* Assets.xcassets */; };
 		9BE52AD7220D8BC900C00732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD5220D8BC900C00732 /* LaunchScreen.storyboard */; };
-		9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ADF220D90F200C00732 /* UIGraphicView.swift */; };
 		ED36E4A627B51D480051343C /* TopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED36E4A527B51D480051343C /* TopCell.swift */; };
-		ED41884627F73F7E003D414C /* UIPinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED41884527F73F7E003D414C /* UIPinTextField.swift */; };
 		ED54C21127B57CFC002C4F1F /* AudioHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED54C21027B57CFC002C4F1F /* AudioHelper.swift */; };
 		ED54C21327B57E76002C4F1F /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED54C21227B57E76002C4F1F /* Constants.swift */; };
-		ED59581F27B08E3500B8176F /* CrossCalculation.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED59581E27B08E3500B8176F /* CrossCalculation.swift */; };
-		ED6630D12891E8CB0026C8FF /* UITestMultiple.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6630D02891E8CB0026C8FF /* UITestMultiple.swift */; };
-		ED70D197286FB54F00B6255C /* UIEqualizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED70D196286FB54F00B6255C /* UIEqualizer.swift */; };
 		ED881E9B27B4B34D00B7253B /* ShowGraphicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ED881E9A27B4B34D00B7253B /* ShowGraphicCell.xib */; };
 		ED881E9E27B4B36900B7253B /* ShowGraphicCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED881E9D27B4B36900B7253B /* ShowGraphicCell.swift */; };
-		EDE4C8A627AD778F0088A5BF /* UISmartGraphicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */; };
-		EDE4C8A827AD8C870088A5BF /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A727AD8C870088A5BF /* Queue.swift */; };
-		EDE4C8AA27ADB45A0088A5BF /* RuntimeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1A8501C3221203D7005A781B /* UITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITest.swift; sourceTree = "<group>"; };
+		7ACB754929DCA916003ED4A0 /* GraphicLB */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GraphicLB; path = ../Libs/GraphicLB; sourceTree = "<group>"; };
 		9BE52AC9220D8BC700C00732 /* GraphicMotionApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphicMotionApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE52ACC220D8BC700C00732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE52ACE220D8BC700C00732 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,19 +29,11 @@
 		9BE52AD3220D8BC900C00732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9BE52AD6220D8BC900C00732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9BE52AD8220D8BC900C00732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9BE52ADF220D90F200C00732 /* UIGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIGraphicView.swift; sourceTree = "<group>"; };
 		ED36E4A527B51D480051343C /* TopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCell.swift; sourceTree = "<group>"; };
-		ED41884527F73F7E003D414C /* UIPinTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPinTextField.swift; sourceTree = "<group>"; };
 		ED54C21027B57CFC002C4F1F /* AudioHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHelper.swift; sourceTree = "<group>"; };
 		ED54C21227B57E76002C4F1F /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		ED59581E27B08E3500B8176F /* CrossCalculation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CrossCalculation.swift; sourceTree = "<group>"; };
-		ED6630D02891E8CB0026C8FF /* UITestMultiple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestMultiple.swift; sourceTree = "<group>"; };
-		ED70D196286FB54F00B6255C /* UIEqualizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIEqualizer.swift; sourceTree = "<group>"; };
 		ED881E9A27B4B34D00B7253B /* ShowGraphicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShowGraphicCell.xib; sourceTree = "<group>"; };
 		ED881E9D27B4B36900B7253B /* ShowGraphicCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowGraphicCell.swift; sourceTree = "<group>"; };
-		EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISmartGraphicView.swift; sourceTree = "<group>"; };
-		EDE4C8A727AD8C870088A5BF /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
-		EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuntimeError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,17 +41,35 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7ACB754C29DCAA61003ED4A0 /* GraphicLB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7ACB754829DCA916003ED4A0 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				7ACB754929DCA916003ED4A0 /* GraphicLB */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
+		7ACB754A29DCAA61003ED4A0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9BE52AC0220D8BC700C00732 = {
 			isa = PBXGroup;
 			children = (
+				7ACB754829DCA916003ED4A0 /* Packages */,
 				9BE52ACB220D8BC700C00732 /* GraphicMotionApplication */,
 				9BE52ACA220D8BC700C00732 /* Products */,
+				7ACB754A29DCAA61003ED4A0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,11 +105,6 @@
 		ED54C21427B58580002C4F1F /* graphic */ = {
 			isa = PBXGroup;
 			children = (
-				EDE4C8A527AD778F0088A5BF /* UISmartGraphicView.swift */,
-				1A8501C3221203D7005A781B /* UITest.swift */,
-				9BE52ADF220D90F200C00732 /* UIGraphicView.swift */,
-				ED70D196286FB54F00B6255C /* UIEqualizer.swift */,
-				ED6630D02891E8CB0026C8FF /* UITestMultiple.swift */,
 			);
 			path = graphic;
 			sourceTree = "<group>";
@@ -115,11 +112,7 @@
 		ED54C21527B58597002C4F1F /* util */ = {
 			isa = PBXGroup;
 			children = (
-				EDE4C8A927ADB45A0088A5BF /* RuntimeError.swift */,
-				EDE4C8A727AD8C870088A5BF /* Queue.swift */,
 				ED54C21027B57CFC002C4F1F /* AudioHelper.swift */,
-				ED59581E27B08E3500B8176F /* CrossCalculation.swift */,
-				ED41884527F73F7E003D414C /* UIPinTextField.swift */,
 			);
 			path = util;
 			sourceTree = "<group>";
@@ -170,6 +163,9 @@
 			dependencies = (
 			);
 			name = GraphicMotionApplication;
+			packageProductDependencies = (
+				7ACB754B29DCAA61003ED4A0 /* GraphicLB */,
+			);
 			productName = GraphicMotionApplication;
 			productReference = 9BE52AC9220D8BC700C00732 /* GraphicMotionApplication.app */;
 			productType = "com.apple.product-type.application";
@@ -228,18 +224,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED54C21127B57CFC002C4F1F /* AudioHelper.swift in Sources */,
-				EDE4C8AA27ADB45A0088A5BF /* RuntimeError.swift in Sources */,
 				9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */,
-				ED59581F27B08E3500B8176F /* CrossCalculation.swift in Sources */,
-				ED70D197286FB54F00B6255C /* UIEqualizer.swift in Sources */,
-				ED6630D12891E8CB0026C8FF /* UITestMultiple.swift in Sources */,
-				1A8501C4221203D7005A781B /* UITest.swift in Sources */,
 				ED36E4A627B51D480051343C /* TopCell.swift in Sources */,
-				EDE4C8A827AD8C870088A5BF /* Queue.swift in Sources */,
 				ED881E9E27B4B36900B7253B /* ShowGraphicCell.swift in Sources */,
-				EDE4C8A627AD778F0088A5BF /* UISmartGraphicView.swift in Sources */,
-				ED41884627F73F7E003D414C /* UIPinTextField.swift in Sources */,
-				9BE52AE0220D90F200C00732 /* UIGraphicView.swift in Sources */,
 				9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */,
 				ED54C21327B57E76002C4F1F /* Constants.swift in Sources */,
 			);
@@ -443,6 +430,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7ACB754B29DCAA61003ED4A0 /* GraphicLB */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = GraphicLB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9BE52AC1220D8BC700C00732 /* Project object */;
 }

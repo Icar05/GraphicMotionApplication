@@ -7,8 +7,8 @@
 //
 
 
-let playSound = false
+let playSound = true
 
-let simultiniouslyUpdate = true
+let simultiniouslyUpdate = false
 
 let interval =  0.07

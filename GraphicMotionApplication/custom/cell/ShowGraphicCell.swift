@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GraphicLB
 
 class ShowGraphicCell: UITableViewCell{
     
@@ -17,7 +18,7 @@ class ShowGraphicCell: UITableViewCell{
     
     @IBOutlet weak var forGraphic: UIView!
     
-    private var graphic: Graphic? = nil
+    private var graphic: UIGraphic? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +32,7 @@ class ShowGraphicCell: UITableViewCell{
         self.selectionStyle = .none
     }
     
-    open func getGraphic() -> Graphic{
+    open func getGraphic() -> UIGraphic{
         return self.graphic!
     }
 }
