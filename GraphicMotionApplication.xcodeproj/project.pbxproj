@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7ACB754C29DCAA61003ED4A0 /* GraphicLB in Frameworks */ = {isa = PBXBuildFile; productRef = 7ACB754B29DCAA61003ED4A0 /* GraphicLB */; };
+		7AEB490129DCC1940094FF68 /* GraphicLB in Frameworks */ = {isa = PBXBuildFile; productRef = 7AEB490029DCC1940094FF68 /* GraphicLB */; };
 		9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACC220D8BC700C00732 /* AppDelegate.swift */; };
 		9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACE220D8BC700C00732 /* ViewController.swift */; };
 		9BE52AD2220D8BC700C00732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE52AD0220D8BC700C00732 /* Main.storyboard */; };
@@ -41,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7ACB754C29DCAA61003ED4A0 /* GraphicLB in Frameworks */,
+				7AEB490129DCC1940094FF68 /* GraphicLB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,7 +164,7 @@
 			);
 			name = GraphicMotionApplication;
 			packageProductDependencies = (
-				7ACB754B29DCAA61003ED4A0 /* GraphicLB */,
+				7AEB490029DCC1940094FF68 /* GraphicLB */,
 			);
 			productName = GraphicMotionApplication;
 			productReference = 9BE52AC9220D8BC700C00732 /* GraphicMotionApplication.app */;
@@ -195,6 +195,9 @@
 				Base,
 			);
 			mainGroup = 9BE52AC0220D8BC700C00732;
+			packageReferences = (
+				7AEB48FF29DCC1940094FF68 /* XCRemoteSwiftPackageReference "GraphicLB" */,
+			);
 			productRefGroup = 9BE52ACA220D8BC700C00732 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -431,9 +434,21 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		7AEB48FF29DCC1940094FF68 /* XCRemoteSwiftPackageReference "GraphicLB" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Icar05/GraphicLB.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
-		7ACB754B29DCAA61003ED4A0 /* GraphicLB */ = {
+		7AEB490029DCC1940094FF68 /* GraphicLB */ = {
 			isa = XCSwiftPackageProductDependency;
+			package = 7AEB48FF29DCC1940094FF68 /* XCRemoteSwiftPackageReference "GraphicLB" */;
 			productName = GraphicLB;
 		};
 /* End XCSwiftPackageProductDependency section */
