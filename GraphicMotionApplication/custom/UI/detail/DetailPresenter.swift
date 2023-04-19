@@ -49,6 +49,7 @@ public final class DetailPresenter {
     func toggleUpdater(){
         self.isStarted = !isStarted
         self.isStarted ? self.upater.start() : self.upater.stop()
+        self.view.updateTitleForButton(isStarted: isStarted)
     }
     
     

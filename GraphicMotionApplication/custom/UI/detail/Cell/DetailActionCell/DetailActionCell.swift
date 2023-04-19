@@ -10,6 +10,9 @@ import UIKit
 
 class DetailActionCell: UITableViewCell, DetailCell {
     
+    
+    @IBOutlet weak var actionBtn: UIButton!
+    
     @IBAction func didButtonClick(_ sender: Any) {
         self.action?()
     }
@@ -19,10 +22,8 @@ class DetailActionCell: UITableViewCell, DetailCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.updateTitle(false)
     }
-
-
     
     func update(with model: DetailModel) {
         
@@ -31,6 +32,15 @@ class DetailActionCell: UITableViewCell, DetailCell {
         }
         
         self.action = cellModel.callback
+    }
+    
+    func updateTitle(_ isStarted: Bool){
+        self.actionBtn.setTitle(getTitle(isStarted), for: .normal)
+        self.actionBtn.setTitle(getTitle(isStarted), for: .selected)
+    }
+    
+    private func getTitle(_ isStarted: Bool) -> String {
+        return  isStarted ? "Stop Example" : "Start Example"
     }
     
 }

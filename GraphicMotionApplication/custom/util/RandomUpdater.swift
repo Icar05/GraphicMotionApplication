@@ -36,3 +36,28 @@ public final class RandomUpdater{
         self.delegate?(randomNumber)
     }
 }
+
+
+//private func setNewValueInRowWithValues(index: Int, value: Int){
+//    do{
+//        let view = data[index].view
+//
+//
+//        if(view is UIDoubleGraphic){
+//
+//            let mView = view as? UIDoubleGraphic
+//
+//            for i in 0...1{
+//                try mView?.pushValue(index: i, value: Int.random(in: 1...self.numbers.max()!))
+//            }
+//
+//            mView?.update()
+//
+//        }else{
+//            try data[index].view.pushValue(index: 0, value: value)
+//        }
+//
+//    }catch let error{
+//        print("error while push value: \(error)")
+//    }
+//}

@@ -61,5 +61,13 @@ public final class DetailController: UIViewController {
     }
     
 
-    
+    func updateTitleForButton(isStarted: Bool){
+       
+        guard let cellWithButton = tableView.cellForRow(at: IndexPath(row: 2, section: 0)) as? DetailCell,
+              let actionCell = cellWithButton as? DetailActionCell else {
+            return
+        }
+        
+        actionCell.updateTitle(isStarted)
+    }
 }
