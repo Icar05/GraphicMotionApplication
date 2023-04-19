@@ -1,5 +1,5 @@
 //
-//  DetailCell.swift
+//  DetailViewCell.swift
 //  GraphicMotionApplication
 //
 //  Created by Галяткин Александр on 19.04.2023.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DetailCell: UITableViewCell {
+class DetailViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

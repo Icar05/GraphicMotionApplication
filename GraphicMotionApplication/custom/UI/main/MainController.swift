@@ -43,11 +43,22 @@ public final class  MainController: UIViewController {
         self.setupTableView()
         self.dataSource.setData(data: sources.map{ MainCellModel(title: $0)})
         self.dataSource.callback = { [weak self] value in
-            print("item: \(value)")
+            guard let self = self else { return }
+            self.showGraphicInfo(value)
         }
         
     }
     
+    
+    
+    private func showGraphicInfo(_ model: MainCellModel){
+        let model = SelectedGraphicModel(view: UIView(), title: model.title, description: "write later")
+        let presener = DetailPresenter(model: model)
+        let vc = DetailController(presenter: presener)
+            presener.set(view: vc)
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
     
     private func setupTableView(){
         self.tableView.delegate = dataSource

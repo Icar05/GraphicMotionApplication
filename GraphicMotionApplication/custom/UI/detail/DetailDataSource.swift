@@ -1,5 +1,5 @@
 //
-//  MainDataSource.swift
+//  DetailDataSource.swift
 //  GraphicMotionApplication
 //
 //  Created by Галяткин Александр on 19.04.2023.
@@ -8,23 +8,21 @@
 
 import UIKit
 
-protocol MainModel{
+protocol DetailModel{
     var reuseIdentifier: String { get }
 }
 
-protocol MainCell: UITableViewCell {
-    func update(with model: MainModel)
+protocol DetailCell: UITableViewCell {
+    func update(with model: DetailModel)
 }
 
 
-final class MainDataSource : NSObject, UITableViewDataSource, UITableViewDelegate{
+final class DetailDataSource : NSObject, UITableViewDataSource, UITableViewDelegate{
     
     
-    private var data: [MainModel] = []
-    
-    var callback: ((_ model: MainCellModel) -> Void )? = nil
-    
-    func setData(data: [MainModel]){
+    private var data: [DetailModel] = []
+        
+    func setData(data: [DetailModel]){
         self.data = data
     }
     
@@ -37,7 +35,7 @@ final class MainDataSource : NSObject, UITableViewDataSource, UITableViewDelegat
    
         let model = data[indexPath.row]
         let id = model.reuseIdentifier
-        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)  as! MainCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: id, for: indexPath)  as! DetailCell
             cell.update(with: model)
 
             return cell
@@ -45,11 +43,6 @@ final class MainDataSource : NSObject, UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return UITableViewCell.EditingStyle.none
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.callback?(data[indexPath.row] as! MainCellModel)
-        
     }
     
 }

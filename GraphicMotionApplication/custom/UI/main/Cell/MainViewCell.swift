@@ -28,8 +28,6 @@ class MainViewCell: UITableViewCell, MainCell {
         }
         
         self.graphicName.text = cellModel.title
-        
-        //TODO make image!
     }
     
 }
