@@ -22,9 +22,7 @@ enum SoundsForTest: Int{
 class AudioHelper{
     
     func playAudio(sound: SoundsForTest){
-        if(playSound){
-            AudioServicesPlaySystemSoundWithCompletion(SystemSoundID(sound.rawValue), nil)
-        }
+        AudioServicesPlaySystemSoundWithCompletion(SystemSoundID(sound.rawValue), nil)
     }
     
 }
