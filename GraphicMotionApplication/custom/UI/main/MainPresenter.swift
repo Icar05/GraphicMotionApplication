@@ -68,7 +68,7 @@ public final class MainPresenter {
             description: "Classical version with 2 graphics  inside. Can change color align to value related to avarage value"
         ),
         ExampleGraphicModel(
-            view: UIEqualizer(),
+            view: UIEqualizer(220, 150),
             title: String(describing: UIEqualizer.self),
             description: "Simple example of equalizer"
         )

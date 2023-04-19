@@ -28,6 +28,7 @@ class DetailViewCell: UITableViewCell, DetailCell {
         
         self.graphicView = cellModel.view
         self.content.addSubview(cellModel.view)
+        self.layoutSubviews()
     }
     
     
