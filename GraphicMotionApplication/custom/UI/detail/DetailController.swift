@@ -71,6 +71,15 @@ public final class DetailController: UIViewController {
         actionCell.updateTitle(isStarted)
     }
     
+    func updateValueForGraphic(_ value: Int){
+        guard let cellWithButton = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? DetailCell,
+              let graphicCell = cellWithButton as? DetailViewCell else {
+            return
+        }
+        
+        graphicCell.updateViewWithValue(value)
+    }
+    
     
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

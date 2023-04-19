@@ -34,7 +34,7 @@ public final class DetailPresenter {
     init(model: ExampleGraphicModel){
         self.model = model
         self.upater.delegate = { [weak self] value in
-            print("value: \(value)")
+            self?.view.updateValueForGraphic(value)
             self?.player.playAudio(sound: model.sound)
         }
     }

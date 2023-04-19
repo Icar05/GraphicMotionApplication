@@ -13,11 +13,12 @@ class DetailViewCell: UITableViewCell, DetailCell {
     
     @IBOutlet weak var content: UIView!
     
+    private let updateViewHelper = UpdateGraphicViewhelper()
+    
     private var graphicView: UIView? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     func update(with model: DetailModel) {
@@ -29,6 +30,11 @@ class DetailViewCell: UITableViewCell, DetailCell {
         self.graphicView = cellModel.view
         self.content.addSubview(cellModel.view)
         self.layoutSubviews()
+    }
+    
+    func updateViewWithValue(_ value: Int){
+        guard let graphicView = graphicView else { return }
+        self.updateViewHelper.update(value, graphicView)
     }
     
     
