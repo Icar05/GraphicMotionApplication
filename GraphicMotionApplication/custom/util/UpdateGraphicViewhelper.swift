@@ -13,17 +13,20 @@ class UpdateGraphicViewhelper{
     
     public func update(_ value: Int, _ maxValue: Int, _ view: UIView){
         
-        
         if(view is UIDoubleGraphic){
             self.updateDoubeGraphic(value, maxValue, view as? UIDoubleGraphic)
         } else if(view is UIEqualizer){
-            self.handleNotImplemented(view)
+            self.updateEqualizer(view as? UIEqualizer)
         } else if(view is UIGraphic){
             self.updateUIGraphic(value, view as? UIGraphic)
         }else{
             self.handleNotImplemented(view)
         }
         
+    }
+    
+    private func updateEqualizer(_ graphic: UIEqualizer?){
+        graphic?.drawDiagrammAnimated(model: UIEqualizerModel.random())
     }
     
     private func updateDoubeGraphic(_ value: Int, _ maxValue: Int, _ graphic: UIDoubleGraphic?){
