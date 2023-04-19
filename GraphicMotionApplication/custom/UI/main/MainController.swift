@@ -33,7 +33,7 @@ public final class  MainController: UIViewController {
         super.viewDidLoad()
         
         
-        self.title = "Current graphics"
+        self.setupNavbar(title: "Current graphics")
         self.setupTableView()
         self.dataSource.callback = { [weak self] value in
             guard let self = self else { return }
@@ -41,7 +41,7 @@ public final class  MainController: UIViewController {
         }
         
         self.presenter.viewDidLoad()
-        self.navigationItem.backButtonDisplayMode = .minimal
+        
     }
     
     public func registerCells(_ models: [MainModel]){

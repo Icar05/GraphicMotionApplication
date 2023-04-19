@@ -12,12 +12,21 @@ class InitialViewController: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-        self.navigationBar.tintColor = UIColor.black
-        self.navigationBar.backgroundColor = UIColor.orange
     }
+}
 
 
-
+extension UIViewController{
+    func setupNavbar(title: String){
+        
+        let textColor = UIColor.white
+        let backgroundColor = UIColor.black
+        
+        self.navigationController?.navigationBar.backgroundColor = backgroundColor
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: textColor]
+        self.title =  title
+        
+        self.navigationController?.navigationBar.tintColor = textColor
+        self.navigationItem.backButtonDisplayMode = .minimal
+    }
 }

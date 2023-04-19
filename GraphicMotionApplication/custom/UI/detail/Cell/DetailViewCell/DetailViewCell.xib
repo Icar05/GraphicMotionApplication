@@ -30,7 +30,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemGray5Color"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="B1y-HL-l65" secondAttribute="bottom" constant="8" id="5Od-xH-kmW"/>
                             <constraint firstItem="B1y-HL-l65" firstAttribute="centerY" secondItem="Jxf-Jc-Zn6" secondAttribute="centerY" id="Agh-Hk-Zbm"/>
@@ -56,8 +56,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
