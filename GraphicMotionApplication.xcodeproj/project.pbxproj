@@ -63,7 +63,6 @@
 		7A6489C929F0487E00868438 /* DetailActionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailActionCellModel.swift; sourceTree = "<group>"; };
 		7A6489CB29F05FB000868438 /* RandomUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomUpdater.swift; sourceTree = "<group>"; };
 		7A6489CD29F06FD700868438 /* UpdateGraphicViewhelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateGraphicViewhelper.swift; sourceTree = "<group>"; };
-		7ACB754929DCA916003ED4A0 /* GraphicLB */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GraphicLB; path = ../Libs/GraphicLB; sourceTree = "<group>"; };
 		9BE52AC9220D8BC700C00732 /* GraphicMotionApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphicMotionApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE52ACC220D8BC700C00732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE52AD3220D8BC900C00732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -170,7 +169,6 @@
 		7ACB754829DCA916003ED4A0 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
-				7ACB754929DCA916003ED4A0 /* GraphicLB */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
