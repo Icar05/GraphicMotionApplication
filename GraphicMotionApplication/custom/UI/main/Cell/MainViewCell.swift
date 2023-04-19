@@ -27,7 +27,7 @@ class MainViewCell: UITableViewCell, MainCell {
             return
         }
         
-        self.graphicName.text = cellModel.title
+        self.graphicName.text = cellModel.model.title
     }
     
 }

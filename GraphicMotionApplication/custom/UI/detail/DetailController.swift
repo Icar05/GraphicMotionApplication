@@ -43,6 +43,11 @@ public final class DetailController: UIViewController {
         self.presenter.viewDidLoad()
     }
     
+    
+    func setTitle(_ title: String){
+        self.title = title
+    }
+    
     func registerCells(models: [DetailModel]){
         
         models.forEach{

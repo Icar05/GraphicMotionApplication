@@ -9,17 +9,10 @@
 import UIKit
 
 
-public struct SelectedGraphicModel{
-    let view: UIView
-    let title: String
-    let description: String
-}
-
-
 public final class DetailPresenter {
     
     
-    private let model: SelectedGraphicModel
+    private let model: ExampleGraphicModel
     
     unowned var view: DetailController!
     
@@ -27,19 +20,20 @@ public final class DetailPresenter {
         self.view = view
     }
     
-    init(model: SelectedGraphicModel){
+    init(model: ExampleGraphicModel){
         self.model = model
     }
     
     public func viewDidLoad(){
         let cells = prepareCells(model)
+        self.view.setTitle(model.title)
         self.view.registerCells(models: cells)
     }
     
     
-    private func prepareCells(_ model: SelectedGraphicModel) -> [DetailModel]{
+    private func prepareCells(_ model: ExampleGraphicModel) -> [DetailModel]{
         return [
-            DetailtitleCellModel(title: model.title)
+            DetailDescriptionCellModel(descriiption: model.description)
         ]
     }
 }

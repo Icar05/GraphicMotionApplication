@@ -12,15 +12,8 @@ import GraphicLB
 public final class  MainController: UIViewController {
     
     
-    private let sources: [String] = [
-        String(describing: UIGraphicView.self),
-        String(describing: UIModernGraphicView.self),
-        String(describing: UIDoubleColorGraphic.self),
-        String(describing: UIDoubleGraphic.self),
-        String(describing: UIEqualizer.self),
-    ]
-    
-    
+    private let presenter: MainPresenter
+        
     private let dataSource = MainDataSource()
     
     @IBOutlet weak var tableView: UITableView!
@@ -30,7 +23,8 @@ public final class  MainController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init() {
+    init(presenter: MainPresenter) {
+        self.presenter = presenter
         
         super.init(nibName: "MainController", bundle: Bundle.main)
     }
@@ -41,19 +35,28 @@ public final class  MainController: UIViewController {
         
         self.title = "Current graphics"
         self.setupTableView()
-        self.dataSource.setData(data: sources.map{ MainCellModel(title: $0)})
         self.dataSource.callback = { [weak self] value in
             guard let self = self else { return }
             self.showGraphicInfo(value)
         }
         
+        self.presenter.viewDidLoad()
+        
     }
     
-    
+    public func registerCells(_ models: [MainModel]){
+        models.forEach{
+            self.tableView.register(
+                UINib(nibName: $0.reuseIdentifier, bundle: nil),
+                forCellReuseIdentifier: $0.reuseIdentifier
+            )
+        }
+        self.dataSource.setData(data: models)
+        self.tableView.reloadData()
+    }
     
     private func showGraphicInfo(_ model: MainCellModel){
-        let model = SelectedGraphicModel(view: UIView(), title: model.title, description: "write later")
-        let presener = DetailPresenter(model: model)
+        let presener = DetailPresenter(model: model.model)
         let vc = DetailController(presenter: presener)
             presener.set(view: vc)
         
@@ -64,12 +67,8 @@ public final class  MainController: UIViewController {
         self.tableView.delegate = dataSource
         self.tableView.dataSource = dataSource
         self.tableView.tableFooterView = UIView()
-        self.tableView.register(
-            UINib(nibName: String(describing: MainViewCell.self), bundle: nil),
-            forCellReuseIdentifier: String(describing: MainViewCell.self)
-        )
     }
 
- 
+    
 
 }

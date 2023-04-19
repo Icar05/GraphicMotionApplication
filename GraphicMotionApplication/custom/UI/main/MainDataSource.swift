@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol MainModel{
+public protocol MainModel{
     var reuseIdentifier: String { get }
 }
 

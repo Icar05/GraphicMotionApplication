@@ -34,7 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func getMainScreen() -> UIViewController{
-        return MainController()
+        
+        let mainPresenter = MainPresenter()
+        let vc = MainController(presenter: mainPresenter)
+            mainPresenter.set(view: vc)
+        
+        return  vc
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

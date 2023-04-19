@@ -12,7 +12,7 @@ import Foundation
 struct MainCellModel: MainModel{
  
     
-    let title: String
+    let model: ExampleGraphicModel
         
     var reuseIdentifier: String = String(describing: MainViewCell.self)
 }

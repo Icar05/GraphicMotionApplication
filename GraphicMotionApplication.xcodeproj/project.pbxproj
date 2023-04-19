@@ -19,15 +19,14 @@
 		7A6489A829F016FE00868438 /* MainCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489A729F016FE00868438 /* MainCellModel.swift */; };
 		7A6489AC29F0202200868438 /* DetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489AA29F0202200868438 /* DetailViewCell.swift */; };
 		7A6489AD29F0202200868438 /* DetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6489AB29F0202200868438 /* DetailViewCell.xib */; };
-		7A6489B129F0203D00868438 /* DetailTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489AF29F0203D00868438 /* DetailTitleCell.swift */; };
-		7A6489B229F0203D00868438 /* DetailTitleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6489B029F0203D00868438 /* DetailTitleCell.xib */; };
 		7A6489B629F0205B00868438 /* DetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489B429F0205B00868438 /* DetailDescriptionCell.swift */; };
 		7A6489B729F0205B00868438 /* DetailDescriptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6489B529F0205B00868438 /* DetailDescriptionCell.xib */; };
 		7A6489BB29F0208100868438 /* DetailActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489B929F0208100868438 /* DetailActionCell.swift */; };
 		7A6489BC29F0208100868438 /* DetailActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A6489BA29F0208100868438 /* DetailActionCell.xib */; };
 		7A6489BE29F020A200868438 /* DetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489BD29F020A200868438 /* DetailPresenter.swift */; };
 		7A6489C029F0215D00868438 /* DetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489BF29F0215D00868438 /* DetailDataSource.swift */; };
-		7A6489C229F0235E00868438 /* DetailtitleCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489C129F0235E00868438 /* DetailtitleCellModel.swift */; };
+		7A6489C429F025F700868438 /* DetailDescriptionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489C329F025F700868438 /* DetailDescriptionCellModel.swift */; };
+		7A6489C629F0280600868438 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489C529F0280600868438 /* MainPresenter.swift */; };
 		7AEB490129DCC1940094FF68 /* GraphicLB in Frameworks */ = {isa = PBXBuildFile; productRef = 7AEB490029DCC1940094FF68 /* GraphicLB */; };
 		9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACC220D8BC700C00732 /* AppDelegate.swift */; };
 		9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACE220D8BC700C00732 /* ViewController.swift */; };
@@ -54,15 +53,14 @@
 		7A6489A729F016FE00868438 /* MainCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellModel.swift; sourceTree = "<group>"; };
 		7A6489AA29F0202200868438 /* DetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCell.swift; sourceTree = "<group>"; };
 		7A6489AB29F0202200868438 /* DetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailViewCell.xib; sourceTree = "<group>"; };
-		7A6489AF29F0203D00868438 /* DetailTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTitleCell.swift; sourceTree = "<group>"; };
-		7A6489B029F0203D00868438 /* DetailTitleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailTitleCell.xib; sourceTree = "<group>"; };
 		7A6489B429F0205B00868438 /* DetailDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionCell.swift; sourceTree = "<group>"; };
 		7A6489B529F0205B00868438 /* DetailDescriptionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailDescriptionCell.xib; sourceTree = "<group>"; };
 		7A6489B929F0208100868438 /* DetailActionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailActionCell.swift; sourceTree = "<group>"; };
 		7A6489BA29F0208100868438 /* DetailActionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailActionCell.xib; sourceTree = "<group>"; };
 		7A6489BD29F020A200868438 /* DetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPresenter.swift; sourceTree = "<group>"; };
 		7A6489BF29F0215D00868438 /* DetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataSource.swift; sourceTree = "<group>"; };
-		7A6489C129F0235E00868438 /* DetailtitleCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailtitleCellModel.swift; sourceTree = "<group>"; };
+		7A6489C329F025F700868438 /* DetailDescriptionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionCellModel.swift; sourceTree = "<group>"; };
+		7A6489C529F0280600868438 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
 		7ACB754929DCA916003ED4A0 /* GraphicLB */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GraphicLB; path = ../Libs/GraphicLB; sourceTree = "<group>"; };
 		9BE52AC9220D8BC700C00732 /* GraphicMotionApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphicMotionApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE52ACC220D8BC700C00732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				7A64899229F0114200868438 /* Cell */,
+				7A6489C529F0280600868438 /* MainPresenter.swift */,
 				7A64898E29F0113700868438 /* MainController.swift */,
 				7A64898F29F0113700868438 /* MainController.xib */,
 				7A6489A529F016B000868438 /* MainDataSource.swift */,
@@ -105,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				7A64899B29F0119D00868438 /* Cell */,
+				7A6489BD29F020A200868438 /* DetailPresenter.swift */,
 				7A64899729F0119300868438 /* DetailController.swift */,
 				7A64899829F0119300868438 /* DetailController.xib */,
 				7A6489BF29F0215D00868438 /* DetailDataSource.swift */,
@@ -127,9 +127,7 @@
 			children = (
 				7A6489B829F0205E00868438 /* DetailActionCell */,
 				7A6489B329F0204100868438 /* DetailDescriiptionCell */,
-				7A6489AE29F0202700868438 /* DetailTitleCell */,
 				7A6489A929F0200200868438 /* DetailViewCell */,
-				7A6489BD29F020A200868438 /* DetailPresenter.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -152,21 +150,12 @@
 			path = DetailViewCell;
 			sourceTree = "<group>";
 		};
-		7A6489AE29F0202700868438 /* DetailTitleCell */ = {
-			isa = PBXGroup;
-			children = (
-				7A6489AF29F0203D00868438 /* DetailTitleCell.swift */,
-				7A6489B029F0203D00868438 /* DetailTitleCell.xib */,
-				7A6489C129F0235E00868438 /* DetailtitleCellModel.swift */,
-			);
-			path = DetailTitleCell;
-			sourceTree = "<group>";
-		};
 		7A6489B329F0204100868438 /* DetailDescriiptionCell */ = {
 			isa = PBXGroup;
 			children = (
 				7A6489B429F0205B00868438 /* DetailDescriptionCell.swift */,
 				7A6489B529F0205B00868438 /* DetailDescriptionCell.xib */,
+				7A6489C329F025F700868438 /* DetailDescriptionCellModel.swift */,
 			);
 			path = DetailDescriiptionCell;
 			sourceTree = "<group>";
@@ -344,7 +333,6 @@
 				7A64899629F0116700868438 /* MainViewCell.xib in Resources */,
 				7A64899129F0113700868438 /* MainController.xib in Resources */,
 				7A6489A429F012D400868438 /* InitialViewController.xib in Resources */,
-				7A6489B229F0203D00868438 /* DetailTitleCell.xib in Resources */,
 				7A6489BC29F0208100868438 /* DetailActionCell.xib in Resources */,
 				9BE52AD4220D8BC900C00732 /* Assets.xcassets in Resources */,
 				7A6489AD29F0202200868438 /* DetailViewCell.xib in Resources */,
@@ -369,9 +357,9 @@
 				9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */,
 				ED36E4A627B51D480051343C /* TopCell.swift in Sources */,
 				ED881E9E27B4B36900B7253B /* ShowGraphicCell.swift in Sources */,
+				7A6489C629F0280600868438 /* MainPresenter.swift in Sources */,
 				7A6489A829F016FE00868438 /* MainCellModel.swift in Sources */,
-				7A6489C229F0235E00868438 /* DetailtitleCellModel.swift in Sources */,
-				7A6489B129F0203D00868438 /* DetailTitleCell.swift in Sources */,
+				7A6489C429F025F700868438 /* DetailDescriptionCellModel.swift in Sources */,
 				7A64899529F0116700868438 /* MainViewCell.swift in Sources */,
 				9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */,
 				7A64899929F0119300868438 /* DetailController.swift in Sources */,

@@ -1,18 +1,16 @@
 //
-//  DetailtitleCellModel.swift
+//  DetailDescriptionCellModel.swift
 //  GraphicMotionApplication
 //
 //  Created by Галяткин Александр on 19.04.2023.
 //  Copyright © 2023 ipinguin_linuxoid. All rights reserved.
 //
 
-
 import Foundation
 
-struct DetailtitleCellModel: DetailModel{
+struct DetailDescriptionCellModel: DetailModel{
  
-    
-    let title: String
+    let descriiption: String
         
-    var reuseIdentifier: String = String(describing: DetailTitleCell.self)
+    var reuseIdentifier: String = String(describing: DetailDescriptionCell.self)
 }

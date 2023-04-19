@@ -6,19 +6,26 @@
 //  Copyright © 2023 ipinguin_linuxoid. All rights reserved.
 //
 
+
 import UIKit
 
-class DetailDescriptionCell: UITableViewCell {
-
+class DetailDescriptionCell: UITableViewCell, DetailCell {
+    
+    
+    @IBOutlet weak var descriptionLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    func update(with model: DetailModel) {
+        
+        guard let cellModel: DetailDescriptionCellModel = model as? DetailDescriptionCellModel else {
+            return
+        }
+        
+        self.descriptionLabel.text = cellModel.descriiption
     }
+    
     
 }
