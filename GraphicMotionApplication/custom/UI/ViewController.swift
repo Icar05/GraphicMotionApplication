@@ -154,13 +154,16 @@ extension ViewController: UITableViewDataSource{
                 
                 for i in 0...1{
                     
-                    var model = UIDoubleGraphicModel(positivewColor: colors[i], negativeColor: colors[i])
-                        model.datasource.setup(prepareNumbers())
-                    try (view as? UIDoubleGraphic)?.setupWithArray(index: i, model: &model)
+                    var model = UIDoubleGraphicModel(
+                        positivewColor: colors[i],
+                        negativeColor: colors[i],
+                        values: Queue(prepareNumbers())
+                    )
+                    try (view as? UIDoubleGraphic)?.setupWithArray(model: &model)
                 }
                 
             }else{
-                try view.setupWithArray(index: 0, values: numbers)
+                try view.setupWithArray(values: numbers)
             }
             
             
