@@ -25,15 +25,15 @@ class ViewController: UIViewController {
         DataCell(name: "UIGraphic",
                  desc: "First realization",
                  view: UIGraphicView()),
-        DataCell(name: "UISmartGraphic",
+        DataCell(name: "UIModernGraphicView",
                  desc: "Second realization, calculate values align to max value",
-                 view: UISmartGraphicView()),
-        DataCell(name: "UITest",
-                 desc: "Last realization with calculation and nice design",
-                 view: UITestGraphic()),
-        DataCell(name: "UITestMultiple",
+                 view: UIModernGraphicView()),
+        DataCell(name: "UIDoubleColorGraphic",
+                 desc: "Show color align to avarage value",
+                 view: UIDoubleColorGraphic()),
+        DataCell(name: "UIDoubleGraphic",
                  desc: "Attempt to draw multy graphics",
-                 view: UITestMultiple())
+                 view: UIDoubleGraphic())
     ]
     
     private var timer: Timer?
@@ -123,9 +123,9 @@ extension ViewController: UITableViewDataSource{
             let view = data[index].view
             
             
-            if(view is UITestMultiple){
+            if(view is UIDoubleGraphic){
                 
-                let mView = view as? UITestMultiple
+                let mView = view as? UIDoubleGraphic
                 
                 for i in 0...1{
                     try mView?.pushValue(index: i, value: Int.random(in: 1...self.numbers.max()!))
@@ -150,13 +150,13 @@ extension ViewController: UITableViewDataSource{
                     self?.audioTool.playAudio(sound: sound)
                 }
             
-            if(view is UITestMultiple){
+            if(view is UIDoubleGraphic){
                 
                 for i in 0...1{
                     
-                    var model = UITestMultipleModel(positivewColor: colors[i], negativeColor: colors[i])
+                    var model = UIDoubleGraphicModel(positivewColor: colors[i], negativeColor: colors[i])
                         model.datasource.setup(prepareNumbers())
-                    try (view as? UITestMultiple)?.setupWithArray(index: i, model: &model)
+                    try (view as? UIDoubleGraphic)?.setupWithArray(index: i, model: &model)
                 }
                 
             }else{
@@ -175,11 +175,11 @@ extension ViewController: UITableViewDataSource{
         
         if(view is UIGraphicView){
             sound = SoundsForTest.nice
-        } else if(view is UISmartGraphicView){
+        } else if(view is UIModernGraphicView){
             sound = SoundsForTest.silentTouch
-        } else if(view is UITestGraphic){
+        } else if(view is UIDoubleColorGraphic){
             sound = SoundsForTest.middleTouch
-        } else if(view is UITestMultiple){
+        } else if(view is UIDoubleGraphic){
             sound = SoundsForTest.middleTouch
         } else{
             sound = SoundsForTest.nice
