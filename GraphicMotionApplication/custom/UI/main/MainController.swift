@@ -41,7 +41,7 @@ public final class  MainController: UIViewController {
         }
         
         self.presenter.viewDidLoad()
-        
+        self.navigationItem.backButtonDisplayMode = .minimal
     }
     
     public func registerCells(_ models: [MainModel]){
