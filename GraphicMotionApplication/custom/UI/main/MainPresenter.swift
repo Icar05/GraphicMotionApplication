@@ -11,7 +11,7 @@ import UIKit
 import GraphicLB
 
 public struct ExampleGraphicModel{
-//    let view: UIView
+    let view: UIView
     let title: String
     let description: String
 }
@@ -29,6 +29,7 @@ public final class MainPresenter {
      */
     private let source: [ExampleGraphicModel] = [
         ExampleGraphicModel(
+            view: UIGraphicView(),
             title: String(describing: UIGraphicView.self),
             description: "First implementation. Very simple"
         )

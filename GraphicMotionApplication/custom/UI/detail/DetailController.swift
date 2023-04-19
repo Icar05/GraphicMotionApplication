@@ -39,6 +39,7 @@ public final class DetailController: UIViewController {
         self.tableView.delegate = dataSource
         self.tableView.dataSource = dataSource
         self.tableView.tableFooterView = UIView()
+        self.tableView.estimatedRowHeight = UITableView.automaticDimension
 
         self.presenter.viewDidLoad()
     }

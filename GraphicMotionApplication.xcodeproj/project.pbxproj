@@ -27,6 +27,7 @@
 		7A6489C029F0215D00868438 /* DetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489BF29F0215D00868438 /* DetailDataSource.swift */; };
 		7A6489C429F025F700868438 /* DetailDescriptionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489C329F025F700868438 /* DetailDescriptionCellModel.swift */; };
 		7A6489C629F0280600868438 /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489C529F0280600868438 /* MainPresenter.swift */; };
+		7A6489C829F02F9E00868438 /* DetailViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A6489C729F02F9E00868438 /* DetailViewCellModel.swift */; };
 		7AEB490129DCC1940094FF68 /* GraphicLB in Frameworks */ = {isa = PBXBuildFile; productRef = 7AEB490029DCC1940094FF68 /* GraphicLB */; };
 		9BE52ACD220D8BC700C00732 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACC220D8BC700C00732 /* AppDelegate.swift */; };
 		9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE52ACE220D8BC700C00732 /* ViewController.swift */; };
@@ -61,6 +62,7 @@
 		7A6489BF29F0215D00868438 /* DetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDataSource.swift; sourceTree = "<group>"; };
 		7A6489C329F025F700868438 /* DetailDescriptionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDescriptionCellModel.swift; sourceTree = "<group>"; };
 		7A6489C529F0280600868438 /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		7A6489C729F02F9E00868438 /* DetailViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewCellModel.swift; sourceTree = "<group>"; };
 		7ACB754929DCA916003ED4A0 /* GraphicLB */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = GraphicLB; path = ../Libs/GraphicLB; sourceTree = "<group>"; };
 		9BE52AC9220D8BC700C00732 /* GraphicMotionApplication.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphicMotionApplication.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE52ACC220D8BC700C00732 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 			children = (
 				7A6489AA29F0202200868438 /* DetailViewCell.swift */,
 				7A6489AB29F0202200868438 /* DetailViewCell.xib */,
+				7A6489C729F02F9E00868438 /* DetailViewCellModel.swift */,
 			);
 			path = DetailViewCell;
 			sourceTree = "<group>";
@@ -352,6 +355,7 @@
 				ED54C21127B57CFC002C4F1F /* AudioHelper.swift in Sources */,
 				7A6489A329F012D400868438 /* InitialViewController.swift in Sources */,
 				7A6489BB29F0208100868438 /* DetailActionCell.swift in Sources */,
+				7A6489C829F02F9E00868438 /* DetailViewCellModel.swift in Sources */,
 				7A6489C029F0215D00868438 /* DetailDataSource.swift in Sources */,
 				7A64899029F0113700868438 /* MainController.swift in Sources */,
 				9BE52ACF220D8BC700C00732 /* ViewController.swift in Sources */,
