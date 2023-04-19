@@ -21,9 +21,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DGe-1C-hb8" userLabel="Container">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ3-02-5dM">
-                                <rect key="frame" x="16" y="11.666666666666664" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KQ3-02-5dM">
+                                <rect key="frame" x="16" y="8" width="288" height="28"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -32,6 +32,8 @@
                         <constraints>
                             <constraint firstItem="KQ3-02-5dM" firstAttribute="centerY" secondItem="DGe-1C-hb8" secondAttribute="centerY" id="0l8-wj-Grq"/>
                             <constraint firstItem="KQ3-02-5dM" firstAttribute="leading" secondItem="DGe-1C-hb8" secondAttribute="leading" constant="16" id="Fos-gS-0eb"/>
+                            <constraint firstAttribute="bottom" secondItem="KQ3-02-5dM" secondAttribute="bottom" constant="8" id="QLd-Sk-Y67"/>
+                            <constraint firstItem="KQ3-02-5dM" firstAttribute="top" secondItem="DGe-1C-hb8" secondAttribute="top" constant="8" id="gCa-wx-mNH"/>
                             <constraint firstAttribute="trailing" secondItem="KQ3-02-5dM" secondAttribute="trailing" constant="16" id="wsP-vz-pyd"/>
                         </constraints>
                     </view>

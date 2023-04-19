@@ -20,20 +20,7 @@ public struct ExampleGraphicModel{
 public final class MainPresenter {
     
     
-    /**
-     String(describing: UIGraphicView.self),
-     String(describing: UIModernGraphicView.self),
-     String(describing: UIDoubleColorGraphic.self),
-     String(describing: UIDoubleGraphic.self),
-     String(describing: UIEqualizer.self),
-     */
-    private let source: [ExampleGraphicModel] = [
-        ExampleGraphicModel(
-            view: UIGraphicView(),
-            title: String(describing: UIGraphicView.self),
-            description: "First implementation. Very simple"
-        )
-    ]
+    
     
     unowned var view: MainController!
     
@@ -50,4 +37,40 @@ public final class MainPresenter {
     private func prepareCells(_ models: [ExampleGraphicModel]) -> [MainModel]{
         return models.map{ MainCellModel(model: $0) }
     }
+    
+    
+    /**
+     String(describing: UIGraphicView.self),
+     String(describing: UIModernGraphicView.self),
+     String(describing: UIDoubleColorGraphic.self),
+     String(describing: UIDoubleGraphic.self),
+     String(describing: UIEqualizer.self),
+     */
+    private let source: [ExampleGraphicModel] = [
+        ExampleGraphicModel(
+            view: UIGraphicView(),
+            title: String(describing: UIGraphicView.self),
+            description: "First implementation. Very simple"
+        ),
+        ExampleGraphicModel(
+            view: UIModernGraphicView(),
+            title: String(describing: UIModernGraphicView.self),
+            description: "Second version. New modern view. Can change color align to value related to avarage value"
+        ),
+        ExampleGraphicModel(
+            view: UIDoubleColorGraphic(),
+            title: String(describing: UIDoubleColorGraphic.self),
+            description: "Classical version. Can change color align to value related to avarage value"
+        ),
+        ExampleGraphicModel(
+            view: UIDoubleGraphic(),
+            title: String(describing: UIDoubleGraphic.self),
+            description: "Classical version with 2 graphics  inside. Can change color align to value related to avarage value"
+        ),
+        ExampleGraphicModel(
+            view: UIEqualizer(),
+            title: String(describing: UIEqualizer.self),
+            description: "Simple example of equalizer"
+        )
+    ]
 }
