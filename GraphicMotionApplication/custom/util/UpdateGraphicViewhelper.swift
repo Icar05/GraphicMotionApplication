@@ -32,12 +32,17 @@ class UpdateGraphicViewhelper{
     
     
     private func handleNotImplemented(_ view: UIView){
-        print("need implement \(String(describing: view.self))")
+        print("need implement \(view.theClassName)")
     }
     
     private func handleError(_ error: Error){
         print("error while push value: \(error)")
     }
-    
-    
+}
+
+
+extension UIView{
+    var theClassName: String {
+        return NSStringFromClass(type(of: self))
+    }
 }
