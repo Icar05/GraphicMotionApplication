@@ -22,6 +22,7 @@ class DetailActionCell: UITableViewCell, DetailCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.actionBtn.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
         self.updateTitle(false)
     }
     
