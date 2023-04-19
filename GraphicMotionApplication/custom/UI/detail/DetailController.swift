@@ -70,4 +70,12 @@ public final class DetailController: UIViewController {
         
         actionCell.updateTitle(isStarted)
     }
+    
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if self.isMovingFromParent {
+            self.presenter.onExitController()
+        }
+    }
 }

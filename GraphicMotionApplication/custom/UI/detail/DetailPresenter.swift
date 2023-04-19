@@ -45,13 +45,20 @@ public final class DetailPresenter {
         self.view.registerCells(models: cells)
     }
     
+    public func onExitController(){
+        self.isStarted = false
+        self.updateChanges()
+    }
     
-    func toggleUpdater(){
+    private func toggleUpdater(){
         self.isStarted = !isStarted
+        self.updateChanges()
+    }
+    
+    private func updateChanges(){
         self.isStarted ? self.upater.start() : self.upater.stop()
         self.view.updateTitleForButton(isStarted: isStarted)
     }
-    
     
     private func prepareCells(_ model: ExampleGraphicModel) -> [DetailModel]{
         return [
