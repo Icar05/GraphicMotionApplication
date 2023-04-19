@@ -21,5 +21,11 @@ Example of usage:
 
 ![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/push.png) 
 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/Two.jpg) 
-![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/One.jpg)
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/list.jpg) 
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/simple.jpg)
+
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/double.jpg) 
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/doubleColors.jpg)
+
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/modern.jpg) 
+![alt text](https://github.com/Icar05/GraphicMotionApplication/blob/master/equalizer.jpg)
