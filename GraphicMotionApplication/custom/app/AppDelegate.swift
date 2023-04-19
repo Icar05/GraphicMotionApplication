@@ -15,8 +15,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        self.setupIniticalViewController(window: window!)
+        
         return true
+    }
+    
+    private func setupIniticalViewController(window: UIWindow){
+        window.rootViewController = getInitialController()
+        window.makeKeyAndVisible()
+    }
+    
+    private func getInitialController() -> UIViewController{
+        let navVc = InitialViewController()
+        let menuVc = getMainScreen()
+        navVc.viewControllers = [menuVc]
+        return navVc
+    }
+    
+    private func getMainScreen() -> UIViewController{
+        return MainController()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
