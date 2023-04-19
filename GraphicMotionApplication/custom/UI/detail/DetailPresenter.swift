@@ -34,7 +34,10 @@ public final class DetailPresenter {
     private func prepareCells(_ model: ExampleGraphicModel) -> [DetailModel]{
         return [
             DetailViewCellModel(view: model.view),
-            DetailDescriptionCellModel(descriiption: model.description)
+            DetailDescriptionCellModel(descriiption: model.description),
+            DetailActionCellModel(callback: {
+                print("do smth")
+            })
         ]
     }
 }

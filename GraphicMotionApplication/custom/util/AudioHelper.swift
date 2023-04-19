@@ -8,22 +8,22 @@
 
 import AudioToolbox
 
-struct SoundsForTest{
-    static let testing = 1050
-    static let picker = 1157
-    static let nice = 1057
-    static let keyboardWriter = 1100
-    static let silentTouch = 1104
-    static let middleTouch = 1105
-    static let bell = 1111
-    static let test = 1120
+enum SoundsForTest: Int{
+    case testing = 1050
+    case picker = 1157
+    case nice = 1057
+    case keyboardWriter = 1100
+    case silentTouch = 1104
+    case middleTouch = 1105
+    case bell = 1111
+    case test = 1120
 }
 
 class AudioHelper{
     
-    func playAudio(sound: Int){
+    func playAudio(sound: SoundsForTest){
         if(playSound){
-            AudioServicesPlaySystemSoundWithCompletion(SystemSoundID(sound), nil)
+            AudioServicesPlaySystemSoundWithCompletion(SystemSoundID(sound.rawValue), nil)
         }
     }
     

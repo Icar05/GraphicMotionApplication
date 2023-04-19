@@ -172,9 +172,9 @@ extension ViewController: UITableViewDataSource{
         }
     }
     
-    private func getSoundForView(view: UIGraphic) -> Int{
+    private func getSoundForView(view: UIGraphic) -> SoundsForTest{
         
-        let sound: Int
+        let sound: SoundsForTest
         
         if(view is UIGraphicView){
             sound = SoundsForTest.nice

@@ -14,6 +14,7 @@ public struct ExampleGraphicModel{
     let view: UIView
     let title: String
     let description: String
+    let sound: SoundsForTest
 }
 
 
@@ -50,27 +51,32 @@ public final class MainPresenter {
         ExampleGraphicModel(
             view: UIGraphicView(),
             title: String(describing: UIGraphicView.self),
-            description: "First implementation. Very simple"
+            description: "First implementation. Very simple",
+            sound: SoundsForTest.nice
         ),
         ExampleGraphicModel(
             view: UIModernGraphicView(),
             title: String(describing: UIModernGraphicView.self),
-            description: "Second version. New modern view. Can change color align to value related to avarage value"
+            description: "Second version. New modern view. Can change color align to value related to avarage value",
+            sound: SoundsForTest.silentTouch
         ),
         ExampleGraphicModel(
             view: UIDoubleColorGraphic(),
             title: String(describing: UIDoubleColorGraphic.self),
-            description: "Classical version. Can change color align to value related to avarage value"
+            description: "Classical version. Can change color align to value related to avarage value",
+            sound: SoundsForTest.middleTouch
         ),
         ExampleGraphicModel(
             view: UIDoubleGraphic(),
             title: String(describing: UIDoubleGraphic.self),
-            description: "Classical version with 2 graphics  inside. Can change color align to value related to avarage value"
+            description: "Classical version with 2 graphics  inside. Can change color align to value related to avarage value",
+            sound: SoundsForTest.middleTouch
         ),
         ExampleGraphicModel(
             view: UIEqualizer(220, 150),
             title: String(describing: UIEqualizer.self),
-            description: "Simple example of equalizer"
+            description: "Simple example of equalizer",
+            sound: SoundsForTest.nice
         )
     ]
 }
