@@ -18,7 +18,7 @@ public final class RandomUpdater{
     
     private var timer: Timer?
     
-    var delegate: ((Int) -> Void)? = nil
+    var delegate: ((Int, Int) -> Void)? = nil
     
     
     public func start(){
@@ -35,6 +35,6 @@ public final class RandomUpdater{
     
     private func generateUpdate(){
         let randomNumber = Int.random(in: 1...self.numbers.max()!)
-        self.delegate?(randomNumber)
+        self.delegate?(randomNumber, self.numbers.max()!)
     }
 }

@@ -32,9 +32,9 @@ class DetailViewCell: UITableViewCell, DetailCell {
         self.layoutSubviews()
     }
     
-    func updateViewWithValue(_ value: Int){
+    func updateViewWithValue(_ value: Int, _ maxValue: Int){
         guard let graphicView = graphicView else { return }
-        self.updateViewHelper.update(value, graphicView)
+        self.updateViewHelper.update(value, maxValue, graphicView)
     }
     
     
