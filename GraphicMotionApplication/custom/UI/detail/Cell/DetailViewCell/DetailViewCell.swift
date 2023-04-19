@@ -11,6 +11,8 @@ import UIKit
 class DetailViewCell: UITableViewCell, DetailCell {
     
     
+    @IBOutlet weak var valueLabel: UILabel!
+    
     @IBOutlet weak var content: UIView!
     
     private let updateViewHelper = UpdateGraphicViewhelper()
@@ -34,7 +36,7 @@ class DetailViewCell: UITableViewCell, DetailCell {
     
     func updateViewWithValue(_ value: Int, _ maxValue: Int){
         guard let graphicView = graphicView else { return }
-        self.updateViewHelper.update(value, maxValue, graphicView)
+        self.updateViewHelper.update(value, maxValue, graphicView, valueLabel)
     }
     
     

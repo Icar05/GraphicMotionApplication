@@ -23,10 +23,28 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1y-HL-l65" userLabel="Content">
                                 <rect key="frame" x="16" y="8" width="288" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avarage:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1d4-Ne-ZmU">
+                                        <rect key="frame" x="228.66666666666666" y="8" width="59.333333333333343" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[ 0 / 0 ]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hHq-89-nzX">
+                                        <rect key="frame" x="236.66666666666666" y="29" width="51.333333333333343" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="JCR-Uq-g8R"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="Rak-Ki-3zk"/>
+                                    <constraint firstItem="1d4-Ne-ZmU" firstAttribute="top" secondItem="B1y-HL-l65" secondAttribute="top" constant="8" id="T6k-OB-nve"/>
+                                    <constraint firstAttribute="trailing" secondItem="hHq-89-nzX" secondAttribute="trailing" id="YS6-37-wJB"/>
+                                    <constraint firstItem="1d4-Ne-ZmU" firstAttribute="trailing" secondItem="hHq-89-nzX" secondAttribute="trailing" id="koW-ec-KW7"/>
+                                    <constraint firstItem="hHq-89-nzX" firstAttribute="top" secondItem="1d4-Ne-ZmU" secondAttribute="bottom" constant="4" id="vtC-uZ-lVq"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -51,6 +69,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="content" destination="B1y-HL-l65" id="V31-yy-VAl"/>
+                <outlet property="valueLabel" destination="hHq-89-nzX" id="bp3-Kj-KZt"/>
             </connections>
             <point key="canvasLocation" x="-125" y="21"/>
         </tableViewCell>
