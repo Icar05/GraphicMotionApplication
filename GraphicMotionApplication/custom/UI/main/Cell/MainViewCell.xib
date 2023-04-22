@@ -21,6 +21,13 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zPn-Pj-rdO" userLabel="Container">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oIs-k4-tt4">
+                                <rect key="frame" x="16" y="43" width="288" height="1"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="Zfx-1h-EsT"/>
+                                </constraints>
+                            </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultIcon" translatesAutoresizingMaskIntoConstraints="NO" id="eoy-Gi-2xp">
                                 <rect key="frame" x="16" y="5" width="34" height="34"/>
                                 <constraints>
@@ -31,14 +38,17 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qsa-uQ-BIm">
                                 <rect key="frame" x="58" y="11.666666666666664" width="246" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="oIs-k4-tt4" secondAttribute="bottom" id="0w7-MM-IXG"/>
                             <constraint firstAttribute="trailing" secondItem="qsa-uQ-BIm" secondAttribute="trailing" constant="16" id="OHl-Oi-3Ti"/>
                             <constraint firstItem="qsa-uQ-BIm" firstAttribute="centerY" secondItem="zPn-Pj-rdO" secondAttribute="centerY" id="RHP-vh-kTL"/>
+                            <constraint firstItem="oIs-k4-tt4" firstAttribute="trailing" secondItem="zPn-Pj-rdO" secondAttribute="trailing" constant="-16" id="RVH-EV-SB0"/>
+                            <constraint firstItem="oIs-k4-tt4" firstAttribute="leading" secondItem="zPn-Pj-rdO" secondAttribute="leading" constant="16" id="ZbW-U5-n20"/>
                             <constraint firstItem="eoy-Gi-2xp" firstAttribute="leading" secondItem="zPn-Pj-rdO" secondAttribute="leading" constant="16" id="aQ5-25-945"/>
                             <constraint firstItem="qsa-uQ-BIm" firstAttribute="leading" secondItem="eoy-Gi-2xp" secondAttribute="trailing" constant="8" id="rwb-Vd-Lat"/>
                             <constraint firstItem="eoy-Gi-2xp" firstAttribute="centerY" secondItem="zPn-Pj-rdO" secondAttribute="centerY" id="sfB-6L-Ngl"/>
@@ -61,7 +71,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="DefaultIcon" width="120" height="120"/>
+        <image name="DefaultIcon" width="234" height="234"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
